@@ -4,6 +4,7 @@
  */
 package Model;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,10 +14,10 @@ import java.util.Optional;
  */
 
 public abstract class BaseModel<T> {
-    public abstract T create(T entity);
-    public abstract Optional<T> read(int id);
-    public abstract List<T> readAll();
-    public abstract T update(int id, T entity);
-    public abstract boolean delete(int id);
+    public abstract T create(T entity) throws SQLException;
+    public abstract Optional<T> read(int id) throws SQLException;
+    public abstract List<T> readAll() throws SQLException;
+    public abstract T update(int id, T entity) throws SQLException;
+    public abstract boolean delete(int id) throws SQLException;
 }
 

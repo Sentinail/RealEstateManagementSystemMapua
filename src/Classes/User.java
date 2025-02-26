@@ -17,6 +17,16 @@ public class User {
     private String lname;
     private String role; // "ADMIN" or "CUSTOMER"
 
+    // Constructor for creating a new user (id is auto-generated)
+    public User(String username, String password, String fname, String lname, String role) {
+        this.username = username;
+        this.password = password;
+        this.fname = fname;
+        this.lname = lname;
+        this.role = role;
+    }
+
+    // Constructor with ID (used when retrieving users from the database)
     public User(int id, String username, String password, String fname, String lname, String role) {
         this.id = id;
         this.username = username;
