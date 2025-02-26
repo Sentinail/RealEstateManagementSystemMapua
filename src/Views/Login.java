@@ -5,17 +5,22 @@
 package Views;
 
 import javax.swing.*;
+import Components.LogoPanel;
+import Components.LoginForm;
 import java.awt.*;
-import Theme.Theme;
 
-/**
- *
- * @author Sentinail
- */
 public class Login extends JPanel {
-    
     public Login() {
-        this.setLayout(new BorderLayout()); 
-        this.setBackground(Theme.BACKGROUND);
+        setLayout(new BorderLayout());
+
+        // Left Panel: Logo
+        LogoPanel logoPanel = new LogoPanel();
+        
+        // Right Panel: Login Form
+        LoginForm loginForm = new LoginForm();
+
+        // Add both panels to the layout
+        add(logoPanel, BorderLayout.WEST);
+        add(loginForm, BorderLayout.CENTER);
     }
 }
