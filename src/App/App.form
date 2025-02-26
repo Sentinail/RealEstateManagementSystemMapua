@@ -85,15 +85,27 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="logoPanel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="600" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="885" max="-2" attributes="0"/>
+                          <Component id="logoPanel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
+              <SubComponents>
+                <Component class="Components.LogoPanel" name="logoPanel1">
+                </Component>
+              </SubComponents>
             </Container>
             <Container class="Components.RegisterForm" name="registerForm1">
 
@@ -101,25 +113,22 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace min="53" pref="53" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="53" pref="53" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="2" attributes="0">
-                                          <Component id="registerTitle1" alignment="2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField1" alignment="2" min="-2" pref="294" max="-2" attributes="0"/>
-                                          <Component id="jPasswordField1" alignment="2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jPasswordField2" alignment="2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="registerButton1" alignment="2" min="-2" pref="294" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="103" alignment="0" groupAlignment="2" attributes="0">
+                                  <Component id="registerTitle1" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextField1" alignment="2" min="-2" pref="294" max="-2" attributes="0"/>
+                                  <Component id="jPasswordField1" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jPasswordField2" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="registerButton1" alignment="2" min="-2" pref="294" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="hyperlinkLabelRegister1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="53" max="32767" attributes="0"/>
@@ -146,7 +155,10 @@
                           <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                           <Component id="registerButton1" min="-2" pref="31" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <Component id="hyperlinkLabelRegister1" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace pref="49" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -219,8 +231,49 @@
                     <Property name="text" type="java.lang.String" value="Already have an account ?"/>
                   </Properties>
                 </Component>
+                <Component class="Components.HyperlinkLabelRegister" name="hyperlinkLabelRegister1">
+                </Component>
               </SubComponents>
             </Container>
+          </SubComponents>
+        </Container>
+        <Container class="Views.Login" name="login2">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card3"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="logoPanel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="loginForm1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="loginForm1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="logoPanel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="Components.LoginForm" name="loginForm1">
+            </Component>
+            <Component class="Components.LogoPanel" name="logoPanel2">
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>

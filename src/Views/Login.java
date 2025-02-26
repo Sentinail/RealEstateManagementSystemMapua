@@ -5,22 +5,16 @@
 package Views;
 
 import javax.swing.*;
-import Components.LogoPanel;
-import Components.LoginForm;
+import Theme.Theme;
 import java.awt.*;
 
 public class Login extends JPanel {
     public Login() {
-        setLayout(new BorderLayout());
-
-        // Left Panel: Logo
-        LogoPanel logoPanel = new LogoPanel();
-        
-        // Right Panel: Login Form
-        LoginForm loginForm = new LoginForm();
-
-        // Add both panels to the layout
-        add(logoPanel, BorderLayout.WEST);
-        add(loginForm, BorderLayout.CENTER);
+        this.setLayout(new FlowLayout());
+        this.setBackground(Theme.BACKGROUND);
+        this.setPreferredSize(new Dimension(800, 600));
+        this.setMinimumSize(new Dimension(800, 600));
+        this.setMaximumSize(new Dimension(800, 600));
+        this.setName("login");
     }
 }
