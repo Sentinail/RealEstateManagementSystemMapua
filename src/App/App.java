@@ -26,10 +26,12 @@ public class App extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         rootPanel1 = new Components.RootPanel();
         register1 = new Views.Register();
         registerBanner1 = new Components.RegisterBanner();
-        logoPanel1 = new Components.LogoPanel();
+        registerBannerLogo2 = new Components.RegisterBannerLogo();
         registerForm1 = new Components.RegisterForm();
         registerTitle1 = new Components.RegisterTitle();
         registerButton1 = new Components.RegisterButton();
@@ -45,26 +47,27 @@ public class App extends javax.swing.JFrame {
         loginForm1 = new Components.LoginForm();
         logoPanel2 = new Components.LogoPanel();
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
-        javax.swing.GroupLayout registerBanner1Layout = new javax.swing.GroupLayout(registerBanner1);
-        registerBanner1.setLayout(registerBanner1Layout);
-        registerBanner1Layout.setHorizontalGroup(
-            registerBanner1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(registerBanner1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(logoPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(0, Short.MAX_VALUE))
-        );
-        registerBanner1Layout.setVerticalGroup(
-            registerBanner1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(registerBanner1Layout.createSequentialGroup()
-                .addGap(885, 885, 885)
-                .addComponent(logoPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        register1.setAlignmentX(0.0F);
+        register1.setAlignmentY(0.0F);
+        register1.setLayout(new javax.swing.BoxLayout(register1, javax.swing.BoxLayout.LINE_AXIS));
+
+        registerBanner1.setAlignmentX(0.0F);
+        registerBanner1.setAlignmentY(0.0F);
+        registerBanner1.setLayout(new java.awt.BorderLayout());
+        registerBanner1.add(registerBannerLogo2, java.awt.BorderLayout.CENTER);
+
+        register1.add(registerBanner1);
+
+        registerForm1.setAlignmentX(0.0F);
+        registerForm1.setAlignmentY(0.0F);
 
         jTextField1.setMaximumSize(new java.awt.Dimension(294, 31));
         jTextField1.setPreferredSize(new java.awt.Dimension(294, 31));
@@ -143,26 +146,7 @@ public class App extends javax.swing.JFrame {
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout register1Layout = new javax.swing.GroupLayout(register1);
-        register1.setLayout(register1Layout);
-        register1Layout.setHorizontalGroup(
-            register1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(register1Layout.createSequentialGroup()
-                .addComponent(registerBanner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(registerForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        register1Layout.setVerticalGroup(
-            register1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(register1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(registerBanner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, register1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(registerForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        register1.add(registerForm1);
 
         rootPanel1.add(register1, "card2");
 
@@ -258,13 +242,15 @@ public class App extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private Views.Login login2;
     private Components.LoginForm loginForm1;
-    private Components.LogoPanel logoPanel1;
     private Components.LogoPanel logoPanel2;
     private Views.Register register1;
     private Components.RegisterBanner registerBanner1;
+    private Components.RegisterBannerLogo registerBannerLogo2;
     private Components.RegisterButton registerButton1;
     private Components.RegisterForm registerForm1;
     private Components.RegisterTitle registerTitle1;
