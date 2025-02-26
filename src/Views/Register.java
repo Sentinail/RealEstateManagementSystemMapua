@@ -22,6 +22,5 @@ public class Register extends JPanel {
         this.setPreferredSize(new Dimension(800, 600));
         this.setMinimumSize(new Dimension(800, 600));
         this.setMaximumSize(new Dimension(800, 600));
-        this.setName("register");
     }
 }
