@@ -11,7 +11,6 @@ import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import java.sql.SQLIntegrityConstraintViolationException;
 
 /**
  *
