@@ -104,37 +104,27 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace min="53" pref="53" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="53" pref="53" max="-2" attributes="0"/>
                                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="hyperlinkLabelRegister1" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="2" attributes="0">
-                                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="registerTitle1" alignment="2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="registerFirstnameField" alignment="2" min="-2" pref="294" max="-2" attributes="0"/>
-                                          <Component id="registerLastnameField" alignment="2" min="-2" pref="294" max="-2" attributes="0"/>
-                                          <Component id="registerUsernameField" alignment="2" min="-2" pref="294" max="-2" attributes="0"/>
-                                          <Component id="registerPasswordField" alignment="2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="registerConfirmPasswordField" alignment="2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="registerButton" alignment="2" min="-2" pref="294" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="registerTitle1" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="registerFirstnameField" alignment="2" min="-2" pref="294" max="-2" attributes="0"/>
+                                  <Component id="registerLastnameField" alignment="2" min="-2" pref="294" max="-2" attributes="0"/>
+                                  <Component id="registerUsernameField" alignment="2" min="-2" pref="294" max="-2" attributes="0"/>
+                                  <Component id="registerPasswordField" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="registerConfirmPasswordField" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="registerButton" alignment="2" min="-2" pref="294" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="53" max="32767" attributes="0"/>
                       </Group>
@@ -142,10 +132,10 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Component id="registerTitle1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="38" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="registerFirstnameField" min="-2" max="-2" attributes="0"/>
@@ -332,6 +322,49 @@
             </Component>
             <Component class="Components.LogoPanel" name="logoPanel2">
             </Component>
+          </SubComponents>
+        </Container>
+        <Container class="Views.Dashboard" name="dashboard2">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card4"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="dashboardSidebar1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="600" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="dashboardSidebar1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="Components.DashboardSidebar" name="dashboardSidebar1">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="200" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="600" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+            </Container>
           </SubComponents>
         </Container>
       </SubComponents>

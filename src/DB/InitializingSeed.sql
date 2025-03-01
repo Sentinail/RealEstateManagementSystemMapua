@@ -1,17 +1,8 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Other/SQLTemplate.sql to edit this template
- */
-/**
- * Author:  Sentinail
- * Created: Mar 1, 2025
- */
-
 -- Create the database if it doesn't exist
-CREATE DATABASE IF NOT EXISTS `realestatesalesmanagementsystemmapua`;
+CREATE DATABASE IF NOT EXISTS `mapua_real_estate`;
 
 -- Use the database
-USE `realestatesalesmanagementsystemmapua`;
+USE `mapua_real_estate`;
 
 -- Create the User table
 CREATE TABLE IF NOT EXISTS `User` (

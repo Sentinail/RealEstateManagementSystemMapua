@@ -16,9 +16,9 @@ import Classes.User;
  * @author Sentinail
  */
 public class UserModel extends BaseModel<User> {
-    private static final String URL = "jdbc:mysql://localhost:3306/realestatesalesmanagementsystemmapua";
-    private static final String USER = "root"; 
-    private static final String PASSWORD = "";  
+    private static final String URL = Utils.Connection.ENDPOINT;
+    private static final String USER = Utils.Connection.USER;
+    private static final String PASSWORD = Utils.Connection.PASSWORD;
 
     @Override
     public User create(User user) throws SQLException { // Let the exception propagate
