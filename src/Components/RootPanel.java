@@ -12,17 +12,21 @@ import java.awt.*;
  * @author Sentinail
  */
 public class RootPanel extends JPanel {
+    private CardLayout cardLayout;
     
     public RootPanel() {
-        // Set layout (CardLayout allows component swapping)
-        this.setLayout(new CardLayout());
+        cardLayout = new CardLayout(); // Initialize CardLayout
+        this.setLayout(cardLayout);
 
         // Set fixed size of 800x600
         this.setPreferredSize(new Dimension(800, 600));
         this.setMinimumSize(new Dimension(800, 600));
         this.setMaximumSize(new Dimension(800, 600));
 
-        // Optional: Set background color
         this.setBackground(Color.WHITE);
+    }
+    
+    public void view(String panelName) {
+        cardLayout.show(this, panelName);
     }
 }

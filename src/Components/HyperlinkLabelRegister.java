@@ -43,26 +43,8 @@ public class HyperlinkLabelRegister extends JPanel {
                 RootPanel rootPanel = (RootPanel) SwingUtilities.getAncestorOfClass(RootPanel.class, HyperlinkLabelRegister.this);
 
                 if (rootPanel != null) {
-                    // Find login1 inside rootPanel1
-                    Component[] components = rootPanel.getComponents();
-                    JPanel loginPanel = null;
-
-                    for (Component comp : components) {
-                        if (comp instanceof JPanel && "login".equals(comp.getName())) {
-                            loginPanel = (JPanel) comp;
-                            break;
-                        }
-                    }
-
-                    // Switch to login1 panel
-                    if (loginPanel != null) {
-                        rootPanel.removeAll();
-                        rootPanel.add(loginPanel);
-                        rootPanel.repaint();
-                        rootPanel.revalidate();
-                    } else {
-                        System.out.println("login panel not found!");
-                    }
+                    rootPanel.view("card3");
+                    
                 } else {
                     System.out.println("RootPanel not found!");
                 }
