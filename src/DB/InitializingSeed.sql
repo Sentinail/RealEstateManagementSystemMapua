@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `Block` (
 -- Create the Lot table
 CREATE TABLE IF NOT EXISTS `Lot` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `blockId` CHAR(36) NOT NULL,
+  `blockId` INT,
   `customerId` INT, -- Matches User.id
   `coordinates` VARCHAR(255) NOT NULL,
   `size` DECIMAL(10,2) NOT NULL,
