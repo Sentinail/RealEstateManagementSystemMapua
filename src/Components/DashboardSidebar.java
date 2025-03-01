@@ -1,6 +1,5 @@
 package Components;
 
-
 import Theme.Theme;
 import java.awt.Dimension;
 import java.awt.FlowLayout;

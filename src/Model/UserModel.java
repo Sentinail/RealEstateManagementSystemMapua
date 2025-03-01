@@ -93,6 +93,30 @@ public class UserModel extends BaseModel<User> {
         return users;
     }
 
+public User authenticate(String username, String password) throws SQLException {
+    String query = "SELECT * FROM User WHERE username = ? AND password = ?";  // Note 'User' not 'users'
+    
+    try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+         PreparedStatement pstmt = connection.prepareStatement(query)) {
+        
+        pstmt.setString(1, username);
+        pstmt.setString(2, password);
+        
+        ResultSet rs = pstmt.executeQuery();
+        
+        if (rs.next()) {
+            return new User(
+                rs.getInt("id"),
+                rs.getString("username"),
+                rs.getString("password"),
+                rs.getString("fname"),     // Note: column is 'fname' not 'firstname'
+                rs.getString("lname"),     // Note: column is 'lname' not 'lastname'
+                rs.getString("role")
+            );
+        }
+    }
+    return null;
+}
     @Override
     public User update(int id, User user) throws SQLException {
         String query = "UPDATE users SET username = ?, password = ?, fname = ?, lname = ?, role = ? WHERE id = ?";
@@ -111,7 +135,7 @@ public class UserModel extends BaseModel<User> {
             return rowsUpdated > 0 ? user : null;
         }
     }
-
+    
     @Override
     public boolean delete(int id) throws SQLException {
         String query = "DELETE FROM users WHERE id = ?";
@@ -124,3 +148,4 @@ public class UserModel extends BaseModel<User> {
         }
     }
 }
+

@@ -12,9 +12,9 @@ import Theme.Theme;
  *
  * @author Louis
  */
-public class LoginForm extends JPanel {
+public class LoginBanner extends JPanel {
 
-    public LoginForm() {
+    public LoginBanner() {
         // Set layout (CardLayout allows component swapping)
         this.setLayout(new FlowLayout());
 
@@ -24,6 +24,6 @@ public class LoginForm extends JPanel {
         this.setMaximumSize(new Dimension(400, 600));
 
         // Optional: Set background color
-        this.setBackground(Theme.BACKGROUND);
+        this.setBackground(Theme.SECONDARY_BACKGROUND);
     }
 }
