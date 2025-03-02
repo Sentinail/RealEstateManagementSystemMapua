@@ -17,7 +17,6 @@ CREATE TABLE IF NOT EXISTS `User` (
 -- Create the Block table
 CREATE TABLE IF NOT EXISTS `Block` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `coordinates` VARCHAR(255) NOT NULL,
   `number` INT NOT NULL,
   `name` VARCHAR(255) NOT NULL,
   `description` TEXT
@@ -27,8 +26,8 @@ CREATE TABLE IF NOT EXISTS `Block` (
 CREATE TABLE IF NOT EXISTS `Lot` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `blockId` INT,
-  `customerId` INT, -- Matches User.id
-  `coordinates` VARCHAR(255) NOT NULL,
+  `customerId` INT,
+  `location` VARCHAR(255) NOT NULL,
   `size` DECIMAL(10,2) NOT NULL,
   `price` DECIMAL(15,2) NOT NULL,
   `status` ENUM('AVAILABLE', 'RESERVED', 'SOLD') NOT NULL,
