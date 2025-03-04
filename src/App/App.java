@@ -38,6 +38,17 @@ public class App extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         rootPanel = new Components.RootPanel();
+        dashboard = new Views.Dashboard();
+        dashboardSidebar1 = new Components.DashboardSidebar();
+        dashboardSideBarLogo1 = new Components.DashboardSideBarLogo();
+        dashboardSideBarNavigationButton1 = new Components.DashboardSideBarNavigationButton("Sales & Reservation")
+        ;
+        dashboardSideBarNavigationButton2 = new Components.DashboardSideBarNavigationButton("Block Creator")  ;
+        dashboardSideBarNavigationButton3 = new Components.DashboardSideBarNavigationButton("Report")  ;
+        dashboardSideBarNavigationButton4 = new Components.DashboardSideBarNavigationButton("Lot Creator")  ;
+        dashboardBody1 = new Components.DashboardBody();
+        salesAndReservation1 = new Views.SalesAndReservation();
+        lotSearchPanel1 = new Components.LotSearchPanel();
         login = new Views.Login();
         loginBanner3 = new Components.LoginBanner();
         loginBannerLogo1 = new Components.LoginBannerLogo();
@@ -68,9 +79,6 @@ public class App extends javax.swing.JFrame {
         registerLastnameField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         registerFirstnameField = new javax.swing.JTextField();
-        dashboard = new Views.Dashboard();
-        dashboardSidebar1 = new Components.DashboardSidebar();
-        dashboardContent1 = new Components.DashboardContent();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -79,6 +87,88 @@ public class App extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
         setResizable(false);
+
+        dashboardSideBarNavigationButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dashboardSideBarNavigationButton2ActionPerformed(evt);
+            }
+        });
+
+        dashboardSideBarNavigationButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dashboardSideBarNavigationButton4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout dashboardSidebar1Layout = new javax.swing.GroupLayout(dashboardSidebar1);
+        dashboardSidebar1.setLayout(dashboardSidebar1Layout);
+        dashboardSidebar1Layout.setHorizontalGroup(
+            dashboardSidebar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dashboardSidebar1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(dashboardSideBarLogo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dashboardSidebar1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(dashboardSidebar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(dashboardSideBarNavigationButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dashboardSideBarNavigationButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dashboardSideBarNavigationButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dashboardSideBarNavigationButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        dashboardSidebar1Layout.setVerticalGroup(
+            dashboardSidebar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dashboardSidebar1Layout.createSequentialGroup()
+                .addComponent(dashboardSideBarLogo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(dashboardSideBarNavigationButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(dashboardSideBarNavigationButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(dashboardSideBarNavigationButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(dashboardSideBarNavigationButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 311, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout salesAndReservation1Layout = new javax.swing.GroupLayout(salesAndReservation1);
+        salesAndReservation1.setLayout(salesAndReservation1Layout);
+        salesAndReservation1Layout.setHorizontalGroup(
+            salesAndReservation1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(salesAndReservation1Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(lotSearchPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        salesAndReservation1Layout.setVerticalGroup(
+            salesAndReservation1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(salesAndReservation1Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(lotSearchPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        dashboardBody1.add(salesAndReservation1, "card2");
+
+        javax.swing.GroupLayout dashboardLayout = new javax.swing.GroupLayout(dashboard);
+        dashboard.setLayout(dashboardLayout);
+        dashboardLayout.setHorizontalGroup(
+            dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dashboardLayout.createSequentialGroup()
+                .addComponent(dashboardSidebar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(dashboardBody1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        dashboardLayout.setVerticalGroup(
+            dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dashboardLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dashboardSidebar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dashboardBody1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        rootPanel.add(dashboard, "card4");
 
         login.setLayout(new javax.swing.BoxLayout(login, javax.swing.BoxLayout.LINE_AXIS));
 
@@ -308,38 +398,6 @@ public class App extends javax.swing.JFrame {
 
         rootPanel.add(register, "card2");
 
-        javax.swing.GroupLayout dashboardSidebar1Layout = new javax.swing.GroupLayout(dashboardSidebar1);
-        dashboardSidebar1.setLayout(dashboardSidebar1Layout);
-        dashboardSidebar1Layout.setHorizontalGroup(
-            dashboardSidebar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
-        );
-        dashboardSidebar1Layout.setVerticalGroup(
-            dashboardSidebar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout dashboardLayout = new javax.swing.GroupLayout(dashboard);
-        dashboard.setLayout(dashboardLayout);
-        dashboardLayout.setHorizontalGroup(
-            dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dashboardLayout.createSequentialGroup()
-                .addComponent(dashboardSidebar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(dashboardContent1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        dashboardLayout.setVerticalGroup(
-            dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dashboardLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dashboardSidebar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dashboardContent1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-
-        rootPanel.add(dashboard, "card4");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -495,6 +553,14 @@ public class App extends javax.swing.JFrame {
     private void loginPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginPasswordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_loginPasswordFieldActionPerformed
+
+    private void dashboardSideBarNavigationButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardSideBarNavigationButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dashboardSideBarNavigationButton4ActionPerformed
+
+    private void dashboardSideBarNavigationButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardSideBarNavigationButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dashboardSideBarNavigationButton2ActionPerformed
    
 
 
@@ -535,7 +601,12 @@ public class App extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Views.Dashboard dashboard;
-    private Components.DashboardContent dashboardContent1;
+    private Components.DashboardBody dashboardBody1;
+    private Components.DashboardSideBarLogo dashboardSideBarLogo1;
+    private Components.DashboardSideBarNavigationButton dashboardSideBarNavigationButton1;
+    private Components.DashboardSideBarNavigationButton dashboardSideBarNavigationButton2;
+    private Components.DashboardSideBarNavigationButton dashboardSideBarNavigationButton3;
+    private Components.DashboardSideBarNavigationButton dashboardSideBarNavigationButton4;
     private Components.DashboardSidebar dashboardSidebar1;
     private Components.HyperlinkLabelLogin hyperlinkLabelLogin1;
     private Components.HyperlinkLabelRegister hyperlinkLabelRegister1;
@@ -558,6 +629,7 @@ public class App extends javax.swing.JFrame {
     private javax.swing.JPasswordField loginPasswordField;
     private Components.LoginTitle loginTitle1;
     private javax.swing.JTextField loginUsernameField;
+    private Components.LotSearchPanel lotSearchPanel1;
     private Views.Register register;
     private Components.RegisterBanner registerBanner1;
     private Components.RegisterBannerLogo registerBannerLogo2;
@@ -570,5 +642,6 @@ public class App extends javax.swing.JFrame {
     private Components.RegisterTitle registerTitle1;
     private javax.swing.JTextField registerUsernameField;
     private Components.RootPanel rootPanel;
+    private Views.SalesAndReservation salesAndReservation1;
     // End of variables declaration//GEN-END:variables
 }
