@@ -78,7 +78,11 @@ public class LotSearchPanel extends JPanel {
         add(searchPanel, BorderLayout.NORTH);
         add(scrollPane, BorderLayout.CENTER);
 
-        loadLotsFromDatabase();
+        if (!java.beans.Beans.isDesignTime()) {
+            loadLotsFromDatabase();
+            
+        }
+        
         searchButton.addActionListener(e -> filterLots());
     }
 
