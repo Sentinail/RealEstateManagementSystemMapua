@@ -107,7 +107,6 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="dashboardSideBarNavigationButton4" min="-2" max="-2" attributes="0"/>
-                              <Component id="dashboardSideBarNavigationButton3" min="-2" max="-2" attributes="0"/>
                               <Component id="dashboardSideBarNavigationButton2" min="-2" max="-2" attributes="0"/>
                               <Component id="dashboardSideBarNavigationButton1" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -125,9 +124,7 @@
                           <Component id="dashboardSideBarNavigationButton2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="dashboardSideBarNavigationButton4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="dashboardSideBarNavigationButton3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="311" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="349" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -149,11 +146,6 @@
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Components.DashboardSideBarNavigationButton(&quot;Block Creator&quot;)  "/>
-                  </AuxValues>
-                </Component>
-                <Component class="Components.DashboardSideBarNavigationButton" name="dashboardSideBarNavigationButton3">
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Components.DashboardSideBarNavigationButton(&quot;Report&quot;)  "/>
                   </AuxValues>
                 </Component>
                 <Component class="Components.DashboardSideBarNavigationButton" name="dashboardSideBarNavigationButton4">

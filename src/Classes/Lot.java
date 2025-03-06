@@ -13,7 +13,9 @@ import java.math.BigDecimal;
 public class Lot {
     private int id;
     private int blockId;
+    private int blockNumber;
     private Integer customerId; // Nullable foreign key
+    private String customer;
     private String location;
     private BigDecimal size;
     private BigDecimal price;
@@ -21,6 +23,19 @@ public class Lot {
 
     public enum Status {
         AVAILABLE, RESERVED, SOLD
+    }
+    
+    // Constructor for existing lots (with ID) and with blockNumber and customer
+    public Lot(int id, int blockId, int blockNumber, Integer customerId, String customer, String location, BigDecimal size, BigDecimal price, Status status) {
+        this.id = id;
+        this.blockNumber = blockNumber;
+        this.blockId = blockId;
+        this.customerId = customerId;
+        this.customer = customer;
+        this.location = location;
+        this.size = size;
+        this.price = price;
+        this.status = status;
     }
 
     // Constructor for existing lots (with ID)
@@ -56,6 +71,14 @@ public class Lot {
     public int getBlockId() {
         return blockId;
     }
+    
+    public int getBlockNumber() {
+        return blockNumber;
+    }
+    
+    public void setBlockNumber(int blockNumber) {
+        this.blockNumber = blockNumber;
+    }
 
     public void setBlockId(int blockId) {
         this.blockId = blockId;
@@ -64,6 +87,14 @@ public class Lot {
     public Integer getCustomerId() {
         return customerId;
     }
+    
+    public String getCustomer() {
+        return customer;
+    } 
+    
+    public void setCustomer(String customer) {
+        this.customer = customer;
+    } 
 
     public void setCustomerId(Integer customerId) {
         this.customerId = customerId;

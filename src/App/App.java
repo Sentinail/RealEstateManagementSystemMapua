@@ -44,7 +44,6 @@ public class App extends javax.swing.JFrame {
         dashboardSideBarNavigationButton1 = new Components.DashboardSideBarNavigationButton("Sales & Reservation")
         ;
         dashboardSideBarNavigationButton2 = new Components.DashboardSideBarNavigationButton("Block Creator")  ;
-        dashboardSideBarNavigationButton3 = new Components.DashboardSideBarNavigationButton("Report")  ;
         dashboardSideBarNavigationButton4 = new Components.DashboardSideBarNavigationButton("Lot Creator")  ;
         dashboardBody1 = new Components.DashboardBody();
         salesAndReservation1 = new Views.SalesAndReservation();
@@ -117,7 +116,6 @@ public class App extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(dashboardSidebar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(dashboardSideBarNavigationButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dashboardSideBarNavigationButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dashboardSideBarNavigationButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dashboardSideBarNavigationButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -132,9 +130,7 @@ public class App extends javax.swing.JFrame {
                 .addComponent(dashboardSideBarNavigationButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(dashboardSideBarNavigationButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(dashboardSideBarNavigationButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 311, Short.MAX_VALUE))
+                .addGap(0, 349, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout salesAndReservation1Layout = new javax.swing.GroupLayout(salesAndReservation1);
@@ -617,7 +613,6 @@ public class App extends javax.swing.JFrame {
     private Components.DashboardSideBarLogo dashboardSideBarLogo1;
     private Components.DashboardSideBarNavigationButton dashboardSideBarNavigationButton1;
     private Components.DashboardSideBarNavigationButton dashboardSideBarNavigationButton2;
-    private Components.DashboardSideBarNavigationButton dashboardSideBarNavigationButton3;
     private Components.DashboardSideBarNavigationButton dashboardSideBarNavigationButton4;
     private Components.DashboardSidebar dashboardSidebar1;
     private Components.HyperlinkLabelLogin hyperlinkLabelLogin1;

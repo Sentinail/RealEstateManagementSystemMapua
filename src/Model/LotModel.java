@@ -49,9 +49,18 @@ public class LotModel extends BaseModel<Lot> {
 
     @Override
     public Optional<Lot> read(int id) throws SQLException {
-        String query = "SELECT * FROM Lot WHERE id = ?";
+        String query = """
+            SELECT l.id, l.blockId, b.number AS block, 
+                   l.customerId, CONCAT(u.fname, ' ', u.lname) AS customer, 
+                   l.location, l.size, l.price, l.status
+            FROM Lot l
+            LEFT JOIN Block b ON l.blockId = b.id
+            LEFT JOIN User u ON l.customerId = u.id
+            WHERE l.id = ?
+        """;
 
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement stmt = conn.prepareStatement(query)) {
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+             PreparedStatement stmt = conn.prepareStatement(query)) {
 
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
@@ -60,7 +69,9 @@ public class LotModel extends BaseModel<Lot> {
                 return Optional.of(new Lot(
                         rs.getInt("id"),
                         rs.getInt("blockId"),
+                        rs.getInt("block"),
                         rs.getObject("customerId") != null ? rs.getInt("customerId") : null,
+                        rs.getString("customer"),
                         rs.getString("location"),
                         rs.getBigDecimal("size"),
                         rs.getBigDecimal("price"),
@@ -73,20 +84,32 @@ public class LotModel extends BaseModel<Lot> {
 
     @Override
     public List<Lot> readAll() throws SQLException {
-        List<Lot> lots = new ArrayList<>();
-        String query = "SELECT * FROM Lot";
+    List<Lot> lots = new ArrayList<>();
+    String query = """
+        SELECT l.*, 
+               b.number AS block_number, 
+               u.fname, u.lname
+        FROM Lot l
+        LEFT JOIN Block b ON l.blockId = b.id
+        LEFT JOIN User u ON l.customerId = u.id
+    """;
 
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement stmt = conn.prepareStatement(query); ResultSet rs = stmt.executeQuery()) {
+    try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+         PreparedStatement stmt = conn.prepareStatement(query);
+         ResultSet rs = stmt.executeQuery()) {
 
-            while (rs.next()) {
-                lots.add(new Lot(
-                        rs.getInt("id"),
-                        rs.getInt("blockId"),
-                        rs.getObject("customerId") != null ? rs.getInt("customerId") : null,
-                        rs.getString("location"),
-                        rs.getBigDecimal("size"),
-                        rs.getBigDecimal("price"),
-                        Lot.Status.valueOf(rs.getString("status"))
+        while (rs.next()) {
+            String customerName = rs.getString("fname") != null ? rs.getString("fname") + " " + rs.getString("lname") : null;
+            lots.add(new Lot(
+                    rs.getInt("id"),
+                    rs.getInt("blockId"),
+                    rs.getInt("block_number"), // Block number
+                    rs.getObject("customerId") != null ? rs.getInt("customerId") : null,
+                    customerName, // Full customer name
+                    rs.getString("location"),
+                    rs.getBigDecimal("size"),
+                    rs.getBigDecimal("price"),
+                    Lot.Status.valueOf(rs.getString("status"))
                 ));
             }
         }

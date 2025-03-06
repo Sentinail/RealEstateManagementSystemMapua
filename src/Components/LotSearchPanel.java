@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import Model.LotModel;
 import Classes.Lot;
+import Utils.CSV;
 
 /**
  *
@@ -40,6 +41,7 @@ public class LotSearchPanel extends JPanel {
         blockField = new JTextField(5);
         statusComboBox = new JComboBox<>(new String[]{"ALL", "AVAILABLE", "RESERVED", "SOLD"});
         JButton searchButton = new JButton("Search");
+        JButton exportButton = new JButton("Export");
 
         searchPanel.add(new JLabel("Location:"));
         searchPanel.add(locationField);
@@ -60,8 +62,11 @@ public class LotSearchPanel extends JPanel {
         searchPanel.add(statusComboBox);
         searchPanel.add(new JLabel());
         searchPanel.add(searchButton);
+        
+        searchPanel.add(new JLabel());
+        searchPanel.add(exportButton);
 
-        tableModel = new DefaultTableModel(new String[]{"ID", "Location", "Size", "Price", "Status", "Block", "Process"}, 0);
+        tableModel = new DefaultTableModel(new String[]{"ID", "Owner", "Location", "Size", "Price", "Status", "Block", "Process"}, 0);
         table = new JTable(tableModel);
         table.setFillsViewportHeight(true);
         table.setRowHeight(30);
@@ -82,6 +87,37 @@ public class LotSearchPanel extends JPanel {
         }
         
         searchButton.addActionListener(e -> filterLots());
+        exportButton.addActionListener(e -> exportTableData());
+    }
+    
+    public void exportTableData() {
+        List<String[]> data = new ArrayList<>();
+
+        // Define the required columns
+        String[] header = {"Block", "Location", "Size", "Price", "Status", "Owner"};
+        data.add(header);
+
+        int rowCount = tableModel.getRowCount();
+
+        for (int i = 0; i < rowCount; i++) {
+            String block = tableModel.getValueAt(i, 6).toString();
+            String location = tableModel.getValueAt(i, 2).toString();  
+            String size = tableModel.getValueAt(i, 3).toString();  
+            String price = tableModel.getValueAt(i, 4).toString(); 
+            String status = tableModel.getValueAt(i, 5).toString(); 
+            String owner = tableModel.getValueAt(i, 1) != null ? tableModel.getValueAt(i, 1).toString() : "N/A"; // Assuming Owner is at index 2
+
+            data.add(new String[]{block, location, size, price, status, owner});
+        }
+
+        String filePath = "src/report/lots_report.csv";
+
+        try {
+            CSV.writeToFile(filePath, data);
+            JOptionPane.showMessageDialog(null, "CSV file successfully created at: " + filePath, "Export Successful", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error exporting CSV: " + e.getMessage(), "Export Failed", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public void refreshData() {
@@ -97,11 +133,12 @@ public class LotSearchPanel extends JPanel {
             for (Lot lot : lots) {
                 Object[] row = {
                     lot.getId(),
+                    lot.getCustomer(),
                     lot.getLocation(),
                     lot.getSize(),
                     lot.getPrice(),
                     lot.getStatus(),
-                    lot.getBlockId(),
+                    lot.getBlockNumber(),
                     "Process"
                 };
                 allLots.add(row);
