@@ -15,6 +15,10 @@ import java.util.List;
 import Model.LotModel;
 import Classes.Lot;
 import Utils.CSV;
+import Classes.User;
+import Model.UserModel;
+import java.sql.SQLException;
+import java.util.Optional;
 
 /**
  *
@@ -241,22 +245,82 @@ public class LotSearchPanel extends JPanel {
         dialog.setSize(400, 250);
         dialog.setLayout(new GridLayout(4, 2, 10, 10));
 
-        JLabel buyerLabel = new JLabel("Buyer Name:");
-        JTextField buyerField = new JTextField();
+        JLabel buyerLabel = new JLabel("Buyer:");
+        JComboBox<User> buyerDropdown = new JComboBox<>();
         JLabel actionLabel = new JLabel("Action:");
         JComboBox<String> actionBox = new JComboBox<>(new String[]{"Sell", "Reserve"});
         JButton confirmButton = new JButton("Confirm");
 
+        // Fetch users and populate dropdown
+        try {
+            UserModel userModel = new UserModel();
+            List<User> users = userModel.readAll();
+            for (User user : users) {
+                buyerDropdown.addItem(user);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(dialog, "Error fetching users: " + ex.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+        // Set custom renderer for user dropdown
+        buyerDropdown.setRenderer(new DefaultListCellRenderer() {
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                if (value instanceof User) {
+                    User user = (User) value;
+                    setText(user.getFname() + " " + user.getLname()); // Display full name
+                }
+                return this;
+            }
+        });
+
         dialog.add(buyerLabel);
-        dialog.add(buyerField);
+        dialog.add(buyerDropdown);
         dialog.add(actionLabel);
         dialog.add(actionBox);
         dialog.add(new JLabel());
         dialog.add(confirmButton);
 
         confirmButton.addActionListener(e -> {
-            JOptionPane.showMessageDialog(dialog, "Lot " + lotId + " processed successfully!");
-            dialog.dispose();
+            User selectedBuyer = (User) buyerDropdown.getSelectedItem();
+            String action = (String) actionBox.getSelectedItem();
+
+            if (selectedBuyer == null) {
+                JOptionPane.showMessageDialog(dialog, "Please select a buyer!", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            try {
+                LotModel lotModelInstance = new LotModel();
+
+                // Retrieve existing lot details
+                Optional<Lot> optionalLot = lotModelInstance.read(lotId);
+                if (optionalLot.isEmpty()) {
+                    JOptionPane.showMessageDialog(dialog, "Lot not found!", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                Lot lot = optionalLot.get();
+                lot.setCustomerId(selectedBuyer.getId()); // Set buyer ID
+                lot.setStatus(action.equals("Sell") ? Lot.Status.SOLD : Lot.Status.RESERVED); // Update status
+
+                // Update lot in database
+                Lot updatedLot = lotModelInstance.update(lotId, lot);
+
+                if (updatedLot != null) {
+                    this.loadLotsFromDatabase();
+                    
+                    JOptionPane.showMessageDialog(dialog, "Lot " + lotId + " processed successfully for " +
+                            selectedBuyer.getFname() + " " + selectedBuyer.getLname() + "!");
+                    dialog.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(dialog, "Failed to update lot!", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(dialog, "Database error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                
+            }
         });
 
         dialog.setLocationRelativeTo(this);
