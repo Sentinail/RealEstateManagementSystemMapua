@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+    <!-- ...existing code... -->
+    <classpathentry kind="lib" path="libs/your-jar-name.jar"/>
+    <!-- Add more JAR files as needed -->
+    <!-- ...existing code... -->
+</classpath>

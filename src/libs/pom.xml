@@ -1,0 +1,13 @@
+<!-- ...existing code... -->
+<dependencies>
+    <!-- ...existing code... -->
+    <dependency>
+        <groupId>local.library</groupId>
+        <artifactId>your-jar-name</artifactId>
+        <version>1.0</version>
+        <scope>system</scope>
+        <systemPath>${project.basedir}/libs/your-jar-name.jar</systemPath>
+    </dependency>
+    <!-- ...existing code... -->
+</dependencies>
+<!-- ...existing code... -->

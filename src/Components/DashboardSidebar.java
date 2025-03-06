@@ -10,8 +10,6 @@ import java.awt.FlowLayout;
  */
 
 import javax.swing.*;
-import Theme.Theme;
-import java.awt.*;
 
 /**
  *

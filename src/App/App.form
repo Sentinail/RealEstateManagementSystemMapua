@@ -136,6 +136,9 @@
                 <Component class="Components.DashboardSideBarLogo" name="dashboardSideBarLogo1">
                 </Component>
                 <Component class="Components.DashboardSideBarNavigationButton" name="dashboardSideBarNavigationButton1">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dashboardSideBarNavigationButton1ActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Components.DashboardSideBarNavigationButton(&quot;Sales &amp; Reservation&quot;)&#xd;&#xa;"/>
                   </AuxValues>

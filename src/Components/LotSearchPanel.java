@@ -9,9 +9,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import Model.LotModel;
@@ -86,6 +84,10 @@ public class LotSearchPanel extends JPanel {
         searchButton.addActionListener(e -> filterLots());
     }
 
+    public void refreshData() {
+        loadLotsFromDatabase();
+    }
+    
     private void loadLotsFromDatabase() {
         tableModel.setRowCount(0);
         allLots.clear();

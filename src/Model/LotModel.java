@@ -4,7 +4,6 @@ package Model;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 /**
  *
  * @author Sentinail
@@ -16,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class LotModel extends BaseModel<Lot> {
+
     private static final String URL = Utils.Connection.ENDPOINT;
     private static final String USER = Utils.Connection.USER;
     private static final String PASSWORD = Utils.Connection.PASSWORD;
@@ -24,8 +24,7 @@ public class LotModel extends BaseModel<Lot> {
     public Lot create(Lot lot) throws SQLException {
         String query = "INSERT INTO Lot (blockId, customerId, location, size, price, status) VALUES (?, ?, ?, ?, ?, ?)";
 
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-             PreparedStatement stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
 
             stmt.setInt(1, lot.getBlockId());
             if (lot.getCustomerId() != null) {
@@ -52,21 +51,20 @@ public class LotModel extends BaseModel<Lot> {
     public Optional<Lot> read(int id) throws SQLException {
         String query = "SELECT * FROM Lot WHERE id = ?";
 
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-             PreparedStatement stmt = conn.prepareStatement(query)) {
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement stmt = conn.prepareStatement(query)) {
 
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
                 return Optional.of(new Lot(
-                    rs.getInt("id"),
-                    rs.getInt("blockId"),
-                    rs.getObject("customerId") != null ? rs.getInt("customerId") : null,
-                    rs.getString("location"),
-                    rs.getBigDecimal("size"),
-                    rs.getBigDecimal("price"),
-                    Lot.Status.valueOf(rs.getString("status"))
+                        rs.getInt("id"),
+                        rs.getInt("blockId"),
+                        rs.getObject("customerId") != null ? rs.getInt("customerId") : null,
+                        rs.getString("location"),
+                        rs.getBigDecimal("size"),
+                        rs.getBigDecimal("price"),
+                        Lot.Status.valueOf(rs.getString("status"))
                 ));
             }
         }
@@ -78,19 +76,17 @@ public class LotModel extends BaseModel<Lot> {
         List<Lot> lots = new ArrayList<>();
         String query = "SELECT * FROM Lot";
 
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-             PreparedStatement stmt = conn.prepareStatement(query);
-             ResultSet rs = stmt.executeQuery()) {
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement stmt = conn.prepareStatement(query); ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
                 lots.add(new Lot(
-                    rs.getInt("id"),
-                    rs.getInt("blockId"),
-                    rs.getObject("customerId") != null ? rs.getInt("customerId") : null,
-                    rs.getString("location"),
-                    rs.getBigDecimal("size"),
-                    rs.getBigDecimal("price"),
-                    Lot.Status.valueOf(rs.getString("status"))
+                        rs.getInt("id"),
+                        rs.getInt("blockId"),
+                        rs.getObject("customerId") != null ? rs.getInt("customerId") : null,
+                        rs.getString("location"),
+                        rs.getBigDecimal("size"),
+                        rs.getBigDecimal("price"),
+                        Lot.Status.valueOf(rs.getString("status"))
                 ));
             }
         }
@@ -101,8 +97,7 @@ public class LotModel extends BaseModel<Lot> {
     public Lot update(int id, Lot lot) throws SQLException {
         String query = "UPDATE Lot SET blockId = ?, customerId = ?, location = ?, size = ?, price = ?, status = ? WHERE id = ?";
 
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-             PreparedStatement stmt = conn.prepareStatement(query)) {
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement stmt = conn.prepareStatement(query)) {
 
             stmt.setInt(1, lot.getBlockId());
             if (lot.getCustomerId() != null) {
@@ -125,11 +120,20 @@ public class LotModel extends BaseModel<Lot> {
     public boolean delete(int id) throws SQLException {
         String query = "DELETE FROM Lot WHERE id = ?";
 
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-             PreparedStatement stmt = conn.prepareStatement(query)) {
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement stmt = conn.prepareStatement(query)) {
 
             stmt.setInt(1, id);
             return stmt.executeUpdate() > 0;
+        }
+    }
+
+    public boolean createLot(Lot lot) {
+        try {
+            // Convert from your method parameters to what Lot constructor expects
+            return create(lot) != null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 }
