@@ -27,7 +27,6 @@ public class App extends javax.swing.JFrame {
     }
 
     // Components
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -83,7 +82,7 @@ public class App extends javax.swing.JFrame {
         setResizable(false);
 
         dashboardSideBarNavigationButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {   
                 dashboardSideBarNavigationButton1ActionPerformed(evt);
             }
         });
@@ -133,12 +132,16 @@ public class App extends javax.swing.JFrame {
         salesAndReservation1Layout.setHorizontalGroup(
             salesAndReservation1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(salesAndReservation1Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
                 .addComponent(lotSearchPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
         salesAndReservation1Layout.setVerticalGroup(
             salesAndReservation1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lotSearchPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(salesAndReservation1Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(lotSearchPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         dashboardBody1.add(salesAndReservation1, "card2");
@@ -148,9 +151,8 @@ public class App extends javax.swing.JFrame {
         dashboardLayout.setHorizontalGroup(
             dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dashboardLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(dashboardSidebar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(dashboardBody1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         dashboardLayout.setVerticalGroup(
@@ -516,7 +518,7 @@ public class App extends javax.swing.JFrame {
     }//GEN-LAST:event_loginUsernameFieldActionPerformed
 
     // Login
-    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         String username = loginUsernameField.getText();
         char[] passwordChars = loginPasswordField.getPassword();
         String password = new String(passwordChars);
