@@ -1,12 +1,10 @@
 package Views;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+
 import Theme.Theme;
 
 /**
@@ -16,13 +14,16 @@ import Theme.Theme;
 public class SalesAndReservation extends JPanel {
     
      public SalesAndReservation() {
+        // Layout
         this.setLayout(new FlowLayout());
+        // Background
         this.setBackground(Theme.BACKGROUND);
         
-        // Set fixed size of 800x600
+        // Size
         this.setPreferredSize(new Dimension(600, 600));
         this.setMinimumSize(new Dimension(600, 600));
         this.setMaximumSize(new Dimension(600, 600));
+        // Identifier
         this.setName("salesAndReservation");
     }
 }

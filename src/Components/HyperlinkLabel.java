@@ -8,32 +8,34 @@ package Components;
  *
  * @author Louis
  */
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class HyperlinkLabel extends JPanel {
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class HyperlinkLabel extends JPanel { // Link
     public HyperlinkLabel(String normalTextStr, String hyperlinkTextStr) {
-        setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0)); // No gaps in FlowLayout
+        setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
         setBackground(Color.WHITE);
 
-        // Normal text label
         JLabel normalText = new JLabel(normalTextStr);
         normalText.setFont(new Font("Arial", Font.PLAIN, 12));
         normalText.setForeground(Color.BLACK);
 
-        // Hyperlink label
         JLabel hyperlink = new JLabel(hyperlinkTextStr);
         hyperlink.setFont(new Font("Arial", Font.BOLD, 12));
         hyperlink.setForeground(Color.BLUE);
         hyperlink.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
-        // Mouse hover effect for hyperlink
         hyperlink.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                hyperlink.setForeground(new Color(30, 144, 255)); // Lighter blue on hover
+                hyperlink.setForeground(new Color(30, 144, 255));
             }
 
             @Override
@@ -43,11 +45,10 @@ public class HyperlinkLabel extends JPanel {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println("Sign Up Clicked!"); // Replace with navigation logic
+                System.out.println("Sign Up Clicked!");
             }
         });
 
-        // Add components
         add(normalText);
         add(hyperlink);
     }

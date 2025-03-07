@@ -4,8 +4,14 @@
  */
 package Components;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -20,7 +26,7 @@ public class LotProcessingDialog extends JDialog {
         setModal(true);
         setSize(300, 200);
         setLayout(new GridLayout(4, 2, 10, 10));
-        setLocationRelativeTo(null); // Center on screen
+        setLocationRelativeTo(null);
 
         add(new JLabel("Buyer Name:"));
         buyerNameField = new JTextField();

@@ -8,18 +8,27 @@ package Model;
  *
  * @author Sentinail
  */
-import Classes.Lot;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import Classes.Lot;
+
 public class LotModel extends BaseModel<Lot> {
 
+    // Connection
     private static final String URL = Utils.Connection.ENDPOINT;
     private static final String USER = Utils.Connection.USER;
     private static final String PASSWORD = Utils.Connection.PASSWORD;
 
+    // Insert
     @Override
     public Lot create(Lot lot) throws SQLException {
         String query = "INSERT INTO Lot (blockId, customerId, location, size, price, status) VALUES (?, ?, ?, ?, ?, ?)";
@@ -47,6 +56,7 @@ public class LotModel extends BaseModel<Lot> {
         }
     }
 
+    // Fetch
     @Override
     public Optional<Lot> read(int id) throws SQLException {
         String query = """
@@ -82,6 +92,7 @@ public class LotModel extends BaseModel<Lot> {
         return Optional.empty();
     }
 
+    // List
     @Override
     public List<Lot> readAll() throws SQLException {
     List<Lot> lots = new ArrayList<>();
@@ -116,6 +127,7 @@ public class LotModel extends BaseModel<Lot> {
         return lots;
     }
 
+    // Update
     @Override
     public Lot update(int id, Lot lot) throws SQLException {
         String query = "UPDATE Lot SET blockId = ?, customerId = ?, location = ?, size = ?, price = ?, status = ? WHERE id = ?";
@@ -139,6 +151,7 @@ public class LotModel extends BaseModel<Lot> {
         }
     }
 
+    // Remove
     @Override
     public boolean delete(int id) throws SQLException {
         String query = "DELETE FROM Lot WHERE id = ?";
@@ -150,6 +163,7 @@ public class LotModel extends BaseModel<Lot> {
         }
     }
 
+    // Register
     public boolean createLot(Lot lot) {
         try {
             // Convert from your method parameters to what Lot constructor expects

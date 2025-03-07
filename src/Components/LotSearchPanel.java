@@ -4,27 +4,47 @@
  */
 package Components;
 
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.GridLayout;
+import java.math.BigDecimal;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import javax.swing.AbstractCellEditor;
+import javax.swing.DefaultListCellRenderer;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
-import java.awt.*;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import Model.LotModel;
+
 import Classes.Lot;
-import Utils.CSV;
 import Classes.User;
+import Model.LotModel;
 import Model.UserModel;
-import java.sql.SQLException;
-import java.util.Optional;
+import Utils.CSV;
 
 /**
  *
  * @author Sentinail
  */
 public class LotSearchPanel extends JPanel {
+    // Variables
     private JTable table;
     private DefaultTableModel tableModel;
     private JTextField locationField, minSizeField, maxSizeField, minPriceField, maxPriceField, blockField;
@@ -32,6 +52,7 @@ public class LotSearchPanel extends JPanel {
     private List<Object[]> allLots = new ArrayList<>();
     private LotModel lotModel = new LotModel();
 
+    // Constructor
     public LotSearchPanel() {
         setLayout(new BorderLayout(5, 5));
         setPreferredSize(new Dimension(580, 580));
@@ -94,10 +115,10 @@ public class LotSearchPanel extends JPanel {
         exportButton.addActionListener(e -> exportTableData());
     }
     
+    // Export
     public void exportTableData() {
         List<String[]> data = new ArrayList<>();
 
-        // Define the required columns
         String[] header = {"Block", "Location", "Size", "Price", "Status", "Owner"};
         data.add(header);
 
@@ -124,10 +145,12 @@ public class LotSearchPanel extends JPanel {
         }
     }
 
+    // Refresh
     public void refreshData() {
         loadLotsFromDatabase();
     }
     
+    // Load
     private void loadLotsFromDatabase() {
         tableModel.setRowCount(0);
         allLots.clear();
@@ -153,6 +176,7 @@ public class LotSearchPanel extends JPanel {
         }
     }
 
+    // Filter
     private void filterLots() {
         tableModel.setRowCount(0);
         
@@ -163,6 +187,7 @@ public class LotSearchPanel extends JPanel {
         }
     }
 
+    // Match
     private boolean matchesFilters(Object[] lot) {
         String location = locationField.getText().trim().toLowerCase();
         String block = blockField.getText().trim();
@@ -175,8 +200,8 @@ public class LotSearchPanel extends JPanel {
         String lotLocation = ((String) lot[1]).toLowerCase();
         BigDecimal lotSize = (BigDecimal) lot[2];
         BigDecimal lotPrice = (BigDecimal) lot[3];
-        String lotStatus = lot[4].toString(); // Convert enum to String
-        int lotBlock = (int) lot[5]; // int value
+        String lotStatus = lot[4].toString();
+        int lotBlock = (int) lot[5];
 
         System.out.print(lotLocation);
         System.out.print(lotSize);
@@ -185,7 +210,7 @@ public class LotSearchPanel extends JPanel {
         System.out.println("-------------------");
 
         if (!location.isEmpty() && !lotLocation.contains(location)) return false;
-        if (!block.isEmpty() && !String.valueOf(lotBlock).equals(block)) return false; // Fixed
+        if (!block.isEmpty() && !String.valueOf(lotBlock).equals(block)) return false;
         if (!selectedStatus.equals("ALL") && !lotStatus.equals(selectedStatus)) return false;
         if (minSize != null && lotSize.compareTo(minSize) < 0) return false;
         if (maxSize != null && lotSize.compareTo(maxSize) > 0) return false;
@@ -195,6 +220,7 @@ public class LotSearchPanel extends JPanel {
         return true;
     }
 
+    // Convert
     private BigDecimal getBigDecimal(String value) {
         try {
             return value.trim().isEmpty() ? null : new BigDecimal(value.trim());
@@ -203,6 +229,7 @@ public class LotSearchPanel extends JPanel {
         }
     }
 
+    // Render
     private class ButtonRenderer extends DefaultTableCellRenderer {
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
@@ -213,6 +240,7 @@ public class LotSearchPanel extends JPanel {
         }
     }
 
+    // Edit
     private class ButtonEditor extends AbstractCellEditor implements TableCellEditor {
         private JButton button;
         private int selectedRow;
@@ -240,6 +268,7 @@ public class LotSearchPanel extends JPanel {
         }
     }
 
+    // Process
     private void openProcessDialog(int lotId) {
         JDialog dialog = new JDialog((Frame) SwingUtilities.getWindowAncestor(this), "Process Lot", true);
         dialog.setSize(400, 250);
@@ -251,7 +280,6 @@ public class LotSearchPanel extends JPanel {
         JComboBox<String> actionBox = new JComboBox<>(new String[]{"Sell", "Reserve"});
         JButton confirmButton = new JButton("Confirm");
 
-        // Fetch users and populate dropdown
         try {
             UserModel userModel = new UserModel();
             List<User> users = userModel.readAll();
@@ -262,14 +290,13 @@ public class LotSearchPanel extends JPanel {
             JOptionPane.showMessageDialog(dialog, "Error fetching users: " + ex.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
         }
 
-        // Set custom renderer for user dropdown
         buyerDropdown.setRenderer(new DefaultListCellRenderer() {
             @Override
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
                 if (value instanceof User) {
                     User user = (User) value;
-                    setText(user.getFname() + " " + user.getLname()); // Display full name
+                    setText(user.getFname() + " " + user.getLname());
                 }
                 return this;
             }
@@ -294,7 +321,6 @@ public class LotSearchPanel extends JPanel {
             try {
                 LotModel lotModelInstance = new LotModel();
 
-                // Retrieve existing lot details
                 Optional<Lot> optionalLot = lotModelInstance.read(lotId);
                 if (optionalLot.isEmpty()) {
                     JOptionPane.showMessageDialog(dialog, "Lot not found!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -302,10 +328,9 @@ public class LotSearchPanel extends JPanel {
                 }
 
                 Lot lot = optionalLot.get();
-                lot.setCustomerId(selectedBuyer.getId()); // Set buyer ID
-                lot.setStatus(action.equals("Sell") ? Lot.Status.SOLD : Lot.Status.RESERVED); // Update status
+                lot.setCustomerId(selectedBuyer.getId());
+                lot.setStatus(action.equals("Sell") ? Lot.Status.SOLD : Lot.Status.RESERVED);
 
-                // Update lot in database
                 Lot updatedLot = lotModelInstance.update(lotId, lot);
 
                 if (updatedLot != null) {

@@ -1,16 +1,24 @@
 package Model;
 
-import Classes.Block;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import Classes.Block;
+
 public class BlockModel extends BaseModel<Block> {
+    // Connection
     private static final String URL = Utils.Connection.ENDPOINT;
     private static final String USER = Utils.Connection.USER;
     private static final String PASSWORD = Utils.Connection.PASSWORD;
     
+    // Create
     @Override
     public Block create(Block block) throws SQLException {
         String query = "INSERT INTO Block (number, name, description) VALUES (?, ?, ?)";
@@ -32,6 +40,7 @@ public class BlockModel extends BaseModel<Block> {
         }
     }
     
+    // Retrieve
     @Override
     public Optional<Block> read(int id) throws SQLException {
         String query = "SELECT * FROM Block WHERE id = ?";
@@ -54,6 +63,7 @@ public class BlockModel extends BaseModel<Block> {
         return Optional.empty();
     }
     
+    // List
     @Override
     public List<Block> readAll() throws SQLException {
         List<Block> blocks = new ArrayList<>();
@@ -75,10 +85,12 @@ public class BlockModel extends BaseModel<Block> {
         return blocks;
     }
     
+    // Fetch
     public List<Block> getAllBlocks() throws SQLException {
         return readAll();
     }
     
+    // Modify
     @Override
     public Block update(int id, Block block) throws SQLException {
         String query = "UPDATE Block SET number = ?, name = ?, description = ? WHERE id = ?";
@@ -96,6 +108,7 @@ public class BlockModel extends BaseModel<Block> {
         }
     }
     
+    // Delete
     @Override
     public boolean delete(int id) throws SQLException {
         String query = "DELETE FROM Block WHERE id = ?";

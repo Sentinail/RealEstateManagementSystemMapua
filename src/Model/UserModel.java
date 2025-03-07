@@ -5,10 +5,16 @@ package Model;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
 import Classes.User;
 
 /**
@@ -21,14 +27,14 @@ public class UserModel extends BaseModel<User> {
     private static final String PASSWORD = Utils.Connection.PASSWORD;
 
     @Override
-    public User create(User user) throws SQLException { // Let the exception propagate
+    public User create(User user) throws SQLException {
     String query = "INSERT INTO user (username, password, fname, lname, role) VALUES (?, ?, ?, ?, ?)";
     
     try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
          PreparedStatement stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
         
         stmt.setString(1, user.getUsername());
-        stmt.setString(2, user.getPassword()); // Store hashed password in real applications
+        stmt.setString(2, user.getPassword());
         stmt.setString(3, user.getFname());
         stmt.setString(4, user.getLname());
         stmt.setString(5, user.getRole());
@@ -38,7 +44,7 @@ public class UserModel extends BaseModel<User> {
         // Retrieve generated ID
         ResultSet rs = stmt.getGeneratedKeys();
         if (rs.next()) {
-            user.setId(rs.getInt(1)); // Set the auto-generated ID
+            user.setId(rs.getInt(1));
         }
         return user;
     }

@@ -16,19 +16,18 @@ import Model.LotModel;
 import Theme.Theme;
 
 /** 
- *
  * @author Louis
  */
 public class LotCreator extends javax.swing.JPanel {
 
     private Components.LotSearchPanel lotSearchPanel;
 
-    // Constants
+    // Colors
     private static final Color BORDER_COLOR = new Color(200, 200, 200);
     private static final Color SUCCESS_COLOR = new Color(76, 175, 80);
     private static final Color ERROR_COLOR = new Color(211, 47, 47);
 
-    // Constructor
+    // Initialization
     public LotCreator(Components.LotSearchPanel lotSearchPanel) {
         this.lotSearchPanel = lotSearchPanel;
         initComponents();
@@ -43,7 +42,7 @@ public class LotCreator extends javax.swing.JPanel {
         setupHoverEffects();
     }
 
-    // Sizing
+    // Dimensions
     private void adjustComponentSizes() {
 
         int textFieldWidth = 170;
@@ -68,7 +67,7 @@ public class LotCreator extends javax.swing.JPanel {
         btnCreate.setPreferredSize(new Dimension(120, 40));
     }
 
-    // Styling
+    // Layout
     private void Styling1() {
         setBackground(Theme.BACKGROUND);
 
@@ -84,23 +83,20 @@ public class LotCreator extends javax.swing.JPanel {
         titleLabel.setBounds(20, 8, 300, 24);
         headerPanel.add(titleLabel);
 
-        // Add form container with border to make it look more compact
         JPanel formPanel = new JPanel();
         formPanel.setBackground(Theme.BACKGROUND);
         formPanel.setBorder(BorderFactory.createCompoundBorder(
             BorderFactory.createLineBorder(new Color(230, 230, 230), 1),
-            BorderFactory.createEmptyBorder(25, 40, 25, 40) // Increased horizontal padding
+            BorderFactory.createEmptyBorder(25, 40, 25, 40)
         ));
         formPanel.setLayout(new GridBagLayout());
         formPanel.setPreferredSize(new Dimension(450, 350));
 
-        // Create constraints for the form panel content
         GridBagConstraints formConstraints = new GridBagConstraints();
         formConstraints.fill = GridBagConstraints.HORIZONTAL;
         formConstraints.anchor = GridBagConstraints.WEST;
-        formConstraints.insets = new Insets(8, 5, 8, 5); // Tighter spacing
+        formConstraints.insets = new Insets(8, 5, 8, 5);
         
-        // Add label-field pairs to form panel
         formConstraints.gridx = 0;
         formConstraints.gridy = 0;
         formPanel.add(jLabel2, formConstraints);
@@ -141,7 +137,6 @@ public class LotCreator extends javax.swing.JPanel {
         formConstraints.gridy = 4;
         formPanel.add(cmbStatus, formConstraints);
         
-        // Add button in its own panel for better alignment
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         buttonPanel.setBackground(Theme.BACKGROUND);
         buttonPanel.add(btnCreate);
@@ -152,13 +147,11 @@ public class LotCreator extends javax.swing.JPanel {
         formConstraints.anchor = GridBagConstraints.EAST;
         formPanel.add(buttonPanel, formConstraints);
         
-        // Add message label
         formConstraints.gridx = 0;
         formConstraints.gridy = 6;
         formConstraints.anchor = GridBagConstraints.WEST;
         formPanel.add(lblMessage, formConstraints);
 
-        // Header constraints
         GridBagConstraints headerConstraints = new GridBagConstraints();
         headerConstraints.gridx = 0;
         headerConstraints.gridy = 0;
@@ -169,7 +162,6 @@ public class LotCreator extends javax.swing.JPanel {
         headerConstraints.insets = new Insets(0, 0, 10, 0);
         add(headerPanel, headerConstraints);
         
-        // Form panel constraints - center it in the available space
         GridBagConstraints containerConstraints = new GridBagConstraints();
         containerConstraints.gridx = 0;
         containerConstraints.gridy = 1;
@@ -188,7 +180,7 @@ public class LotCreator extends javax.swing.JPanel {
         lblMessage.setFont(new Font("Segoe UI", Font.BOLD, 12));
     }
 
-    // Labels
+    // Typography
     private void styleLabels() {
         Font labelFont = new Font("Segoe UI", Font.BOLD, 13);
 
@@ -205,7 +197,7 @@ public class LotCreator extends javax.swing.JPanel {
         jLabel6.setForeground(Theme.SECONDARY_FOREGROUND);
     }
 
-    // Inputs
+    // Controls
     private void styleInputFields() {
         Font inputFont = new Font("Segoe UI", Font.PLAIN, 14);
 
@@ -216,31 +208,30 @@ public class LotCreator extends javax.swing.JPanel {
         txtLotNumber.setFont(inputFont);
         txtLotNumber.setBorder(textBorder);
         txtLotNumber.setBackground(Theme.BACKGROUND);
-        txtLotNumber.setPreferredSize(new Dimension(180, 40)); // Changed from 200 to 180
+        txtLotNumber.setPreferredSize(new Dimension(180, 40));
 
         txtSize.setFont(inputFont);
         txtSize.setBorder(textBorder);
         txtSize.setBackground(Theme.BACKGROUND);
-        txtSize.setPreferredSize(new Dimension(180, 40)); // Changed from 200 to 180
+        txtSize.setPreferredSize(new Dimension(180, 40));
 
         txtPrice.setFont(inputFont);
         txtPrice.setBorder(textBorder);
         txtPrice.setBackground(Theme.BACKGROUND);
-        txtPrice.setPreferredSize(new Dimension(180, 40)); // Changed from 200 to 180
+        txtPrice.setPreferredSize(new Dimension(180, 40));
 
         cmbBlock.setFont(inputFont);
         cmbBlock.setBackground(Theme.BACKGROUND);
         cmbBlock.setBorder(BorderFactory.createEmptyBorder(8, 10, 8, 10));
-        cmbBlock.setPreferredSize(new Dimension(180, 38)); // Changed from 200 to 180
+        cmbBlock.setPreferredSize(new Dimension(180, 38));
         ((JComponent) cmbBlock.getRenderer()).setBackground(Theme.BACKGROUND);
 
         cmbStatus.setFont(inputFont);
         cmbStatus.setBackground(Theme.BACKGROUND);
         cmbStatus.setBorder(BorderFactory.createEmptyBorder(8, 10, 8, 10));
-        cmbStatus.setPreferredSize(new Dimension(180, 38)); // Changed from 200 to 180
+        cmbStatus.setPreferredSize(new Dimension(180, 38));
         ((JComponent) cmbStatus.getRenderer()).setBackground(Theme.BACKGROUND);
 
-        // Renderer
         cmbBlock.setRenderer(new DefaultListCellRenderer() {
             @Override
             public Component getListCellRendererComponent(JList<?> list, Object value, int index,
@@ -257,7 +248,6 @@ public class LotCreator extends javax.swing.JPanel {
             }
         });
 
-        // Renderer
         cmbStatus.setRenderer(new DefaultListCellRenderer() {
             @Override
             public Component getListCellRendererComponent(JList<?> list, Object value, int index,
@@ -278,7 +268,7 @@ public class LotCreator extends javax.swing.JPanel {
         cmbStatus.setMaximumRowCount(4);
     }
 
-    // Button
+    // Appearance
     private void styleButton() {
         btnCreate.setFont(new Font("Segoe UI", Font.BOLD, 14));
         btnCreate.setBackground(Theme.PRIMARY_BACKGROUND);
@@ -288,9 +278,9 @@ public class LotCreator extends javax.swing.JPanel {
         btnCreate.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnCreate.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
         btnCreate.setContentAreaFilled(true);
-
-    // Hover
     }
+    
+    // Interactivity
     private void setupHoverEffects() {
         btnCreate.addMouseListener(new MouseAdapter() {
             @Override
@@ -325,13 +315,13 @@ public class LotCreator extends javax.swing.JPanel {
         });
     }
 
-    // Feedback
+    // Notification
     private void showMessage(String message, boolean isError) {
         lblMessage.setText(message);
         lblMessage.setForeground(isError ? ERROR_COLOR : SUCCESS_COLOR);
     }
 
-    // Data
+    // Blocks
     private void loadBlocks() {
         try {
             BlockModel blockModel = new BlockModel();
@@ -348,13 +338,7 @@ public class LotCreator extends javax.swing.JPanel {
         }
     }
 
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
-
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // Generated
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -510,15 +494,14 @@ public class LotCreator extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(21, 70, 0, 0);
         add(lblMessage, gridBagConstraints);
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
-    }//GEN-LAST:event_txtPriceActionPerformed
+    private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {
+    }
 
-    // Submit
-    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+    // Validation
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {
         try {
-            // Validation
             if (txtLotNumber.getText().isEmpty()
                     || txtSize.getText().isEmpty()
                     || txtPrice.getText().isEmpty()
@@ -530,7 +513,6 @@ public class LotCreator extends javax.swing.JPanel {
             Block selectedBlock = (Block) cmbBlock.getSelectedItem();
             double sizeDouble, priceDouble;
 
-            // Parsing
             try {
                 sizeDouble = Double.parseDouble(txtSize.getText());
                 priceDouble = Double.parseDouble(txtPrice.getText());
@@ -539,31 +521,26 @@ public class LotCreator extends javax.swing.JPanel {
                 return;
             }
 
-            // Validation
             if (sizeDouble <= 0 || priceDouble <= 0) {
                 lblMessage.setText("Size and price must be positive values");
                 return;
             }
 
-            // Conversion
             BigDecimal size = new BigDecimal(sizeDouble);
             BigDecimal price = new BigDecimal(priceDouble);
 
-            // Status
             String statusString = (String) cmbStatus.getSelectedItem();
             Lot.Status status = Lot.Status.valueOf(statusString);
 
-            // Creation
             Lot newLot = new Lot(
-                    selectedBlock.getId(), // blockId
-                    null, // customerId (null for new lots)
+                    selectedBlock.getId(),
+                    null,
                     selectedBlock.getLocation(),
                     size,
                     price,
                     status
             );
 
-            // Save
             LotModel lotModel = new LotModel();
             boolean success = lotModel.createLot(newLot);
             if (success) {
@@ -596,11 +573,10 @@ public class LotCreator extends javax.swing.JPanel {
         txtPrice.setText("");
         cmbStatus.setSelectedIndex(0);
         lblMessage.setText(" ");
-    }//GEN-LAST:event_btnCreateActionPerformed
+    }
 
-    private void txtLotNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLotNumberActionPerformed
-    }//GEN-LAST:event_txtLotNumberActionPerformed
-
+    private void txtLotNumberActionPerformed(java.awt.event.ActionEvent evt) {
+    }
 
     // Components
     private javax.swing.JButton btnCreate;
@@ -616,5 +592,4 @@ public class LotCreator extends javax.swing.JPanel {
     private javax.swing.JTextField txtLotNumber;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtSize;
-    // End of variables declaration//GEN-END:variables
 }

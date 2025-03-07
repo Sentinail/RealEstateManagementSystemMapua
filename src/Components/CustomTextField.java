@@ -8,14 +8,18 @@ package Components;
  *
  * @author Louis
  */
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 
-public class CustomTextField extends JTextField {
+import javax.swing.BorderFactory;
+import javax.swing.JTextField;
+
+public class CustomTextField extends JTextField { // Input
     public CustomTextField(String placeholder) {
-        this.setPreferredSize(new Dimension(300, 40)); // Set size
-        this.setFont(new Font("Arial", Font.PLAIN, 14)); // Font styling
-        this.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // Border
+        this.setPreferredSize(new Dimension(300, 40));
+        this.setFont(new Font("Arial", Font.PLAIN, 14));
+        this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         this.setOpaque(true);
     }
 }

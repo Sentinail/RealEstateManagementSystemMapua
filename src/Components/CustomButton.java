@@ -8,14 +8,17 @@ package Components;
  *
  * @author Louis
  */
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 
-public class CustomButton extends JButton {
+import javax.swing.JButton;
+
+public class CustomButton extends JButton { // Action
     public CustomButton(String text) {
         super(text);
         setFont(new Font("Arial", Font.BOLD, 14));
-        setBackground(new Color(164, 136, 115)); // Brown shade
+        setBackground(new Color(164, 136, 115)); 
         setForeground(Color.WHITE);
         setFocusPainted(false);
         setBorderPainted(false);

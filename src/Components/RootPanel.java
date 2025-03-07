@@ -4,21 +4,23 @@
  */
 package Components;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JPanel;
 
 /**
  *
  * @author Sentinail
  */
-public class RootPanel extends JPanel {
+public class RootPanel extends JPanel { // Container
     private CardLayout cardLayout;
     
     public RootPanel() {
-        cardLayout = new CardLayout(); // Initialize CardLayout
+        cardLayout = new CardLayout();
         this.setLayout(cardLayout);
 
-        // Set fixed size of 800x600
         this.setPreferredSize(new Dimension(800, 600));
         this.setMinimumSize(new Dimension(800, 600));
         this.setMaximumSize(new Dimension(800, 600));

@@ -4,15 +4,17 @@
  */
 package Components;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Font;
+
+import javax.swing.JButton;
+
 import Theme.Theme;
 
 /**
  *
  * @author Sentinail
  */
-public class RegisterButton extends JButton {
+public class RegisterButton extends JButton { // Submit
     public RegisterButton() {
         super("Register");
         setBackground(Theme.PRIMARY_BACKGROUND);

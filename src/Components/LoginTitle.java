@@ -4,14 +4,16 @@
  */
 package Components;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Font;
+
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 /**
  *
  * @author Louis
  */
-public class LoginTitle extends JLabel {
+public class LoginTitle extends JLabel { // Heading
     public LoginTitle() {
         super("Login", SwingConstants.CENTER);
         setFont(new Font("Arial", Font.BOLD, 36));

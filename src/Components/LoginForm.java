@@ -4,26 +4,26 @@
  */
 package Components;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+
+import javax.swing.JPanel;
+
 import Theme.Theme;
 
 /**
  *
  * @author Louis
  */
-public class LoginForm extends JPanel {
+public class LoginForm extends JPanel { // Authentication
 
     public LoginForm() {
-        // Set layout (CardLayout allows component swapping)
         this.setLayout(new FlowLayout());
 
-        // Set fixed size of 800x600
         this.setPreferredSize(new Dimension(400, 600));
         this.setMinimumSize(new Dimension(400, 600));
         this.setMaximumSize(new Dimension(400, 600));
 
-        // Optional: Set background color
         this.setBackground(Theme.BACKGROUND);
     }
 }

@@ -4,15 +4,17 @@
  */
 package Components;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Font;
+
+import javax.swing.JButton;
+
 import Theme.Theme;
 
 /**
  *
  * @author Louis
  */
-public class LoginButton extends JButton {
+public class LoginButton extends JButton { // Submit
     public LoginButton() {
         super("Login");
         setBackground(Theme.PRIMARY_BACKGROUND);

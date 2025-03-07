@@ -4,22 +4,24 @@
  */
 package Components;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.CardLayout;
+import java.awt.Dimension;
+
+import javax.swing.JPanel;
+
 import Theme.Theme;
 
 /**
  *
  * @author Sentinail
  */
-public class DashboardBody extends JPanel {
+public class DashboardBody extends JPanel { // Content
     private CardLayout cardLayout;
     
     public DashboardBody() {
         cardLayout = new CardLayout(); 
         this.setLayout(cardLayout);
 
-        // Set fixed size of 800x600
         this.setPreferredSize(new Dimension(600, 600));
         this.setMinimumSize(new Dimension(600, 600));
         this.setMaximumSize(new Dimension(600, 600));

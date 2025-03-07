@@ -1,12 +1,18 @@
 package Components;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
-public class HyperlinkLabelLogin extends JPanel {
+
+public class HyperlinkLabelLogin extends JPanel { // Navigation
     public HyperlinkLabelLogin() {
         setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
         setBackground(Color.WHITE);
@@ -29,7 +35,6 @@ public class HyperlinkLabelLogin extends JPanel {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                // Find RootPanel dynamically
                 RootPanel rootPanel = (RootPanel) SwingUtilities.getAncestorOfClass(RootPanel.class, HyperlinkLabelLogin.this);
 
                 if (rootPanel != null) {

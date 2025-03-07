@@ -4,15 +4,17 @@
  */
 package Components;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Font;
+
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 /**
  *
  * @author Sentinail
  */
 
 
-public class RegisterTitle extends JLabel {
+public class RegisterTitle extends JLabel { // Heading
     public RegisterTitle() {
         super("Register", SwingConstants.CENTER);
         setFont(new Font("Arial", Font.BOLD, 36));

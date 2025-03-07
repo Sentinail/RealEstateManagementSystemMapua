@@ -1,13 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Views;
 
-import Theme.Theme;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+
 import javax.swing.JPanel;
+
+import Theme.Theme;
 
 /**
  *
@@ -15,11 +13,17 @@ import javax.swing.JPanel;
  */
 public class Dashboard extends JPanel {
     public Dashboard() {
+        // Layout
         this.setLayout(new FlowLayout());
+        // Color
         this.setBackground(Theme.BACKGROUND);
+        // Size
         this.setPreferredSize(new Dimension(800, 600));
+        // Minimum
         this.setMinimumSize(new Dimension(800, 600));
+        // Maximum
         this.setMaximumSize(new Dimension(800, 600));
+        // Identifier
         this.setName("dashboard");
     }
 }

@@ -3,8 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Components;
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JButton;
+
 import Theme.Theme;
 
 /**
@@ -12,9 +15,8 @@ import Theme.Theme;
  * @author Sentinail
  */
 
-public class DashboardSideBarNavigationButton extends JButton {
+public class DashboardSideBarNavigationButton extends JButton { // Menu
     
-    // Default constructor for Matisse support
     public DashboardSideBarNavigationButton() {
         this.setText("Navigation");
         setPreferredSize(new Dimension(160, 20));
