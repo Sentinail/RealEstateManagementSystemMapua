@@ -197,17 +197,11 @@ public class LotSearchPanel extends JPanel {
         BigDecimal minPrice = getBigDecimal(minPriceField.getText());
         BigDecimal maxPrice = getBigDecimal(maxPriceField.getText());
 
-        String lotLocation = ((String) lot[1]).toLowerCase();
-        BigDecimal lotSize = (BigDecimal) lot[2];
-        BigDecimal lotPrice = (BigDecimal) lot[3];
-        String lotStatus = lot[4].toString();
-        int lotBlock = (int) lot[5];
-
-        System.out.print(lotLocation);
-        System.out.print(lotSize);
-        System.out.print(lotStatus);
-        System.out.print(lotBlock);
-        System.out.println("-------------------");
+        String lotLocation = ((String) lot[2]).toLowerCase();
+        BigDecimal lotSize = (BigDecimal) lot[3];
+        BigDecimal lotPrice = (BigDecimal) lot[4];
+        String lotStatus = lot[5].toString(); 
+        int lotBlock = (int) lot[6]; 
 
         if (!location.isEmpty() && !lotLocation.contains(location)) return false;
         if (!block.isEmpty() && !String.valueOf(lotBlock).equals(block)) return false;
