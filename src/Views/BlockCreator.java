@@ -28,24 +28,24 @@ public class BlockCreator extends javax.swing.JPanel {
 
     // Layout
     private void setupUI() {
-        setBackground(Theme.BACKGROUND);
+        setBackground(new Theme().getBackground());
         setLayout(new GridBagLayout());
 
         JPanel headerPanel = new JPanel();
-        headerPanel.setBackground(Theme.BACKGROUND);
+        headerPanel.setBackground(new Theme().getBackground());
         headerPanel.setPreferredSize(new Dimension(800, 60));
         headerPanel.setLayout(null);
 
         remove(jLabel1);
         JLabel titleLabel = new JLabel("Create New Property Block");
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 22));
-        titleLabel.setForeground(Theme.PRIMARY_FOREGROUND);
+        titleLabel.setForeground(new Theme().getPrimaryForeground());
         titleLabel.setBounds(30, 15, 300, 30);
         headerPanel.add(titleLabel);
 
         // Form
         JPanel formPanel = new JPanel();
-        formPanel.setBackground(Theme.BACKGROUND);
+        formPanel.setBackground(new Theme().getBackground());
         formPanel.setBorder(BorderFactory.createCompoundBorder(
             BorderFactory.createLineBorder(new Color(230, 230, 230), 1),
             BorderFactory.createEmptyBorder(35, 50, 35, 50)
@@ -100,7 +100,7 @@ public class BlockCreator extends javax.swing.JPanel {
         
         // Buttons
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        buttonPanel.setBackground(Theme.BACKGROUND);
+        buttonPanel.setBackground(new Theme().getBackground());
 
         buttonPanel.add(btnCreate);
 
@@ -187,9 +187,9 @@ public class BlockCreator extends javax.swing.JPanel {
         jLabel3.setFont(labelFont);
         jLabel4.setFont(labelFont);
 
-        jLabel2.setForeground(Theme.SECONDARY_FOREGROUND);
-        jLabel3.setForeground(Theme.SECONDARY_FOREGROUND);
-        jLabel4.setForeground(Theme.SECONDARY_FOREGROUND);
+        jLabel2.setForeground(new Theme().getSecondaryForeground());
+        jLabel3.setForeground(new Theme().getSecondaryForeground());
+        jLabel4.setForeground(new Theme().getSecondaryForeground());
     }
 
     // Fields
@@ -202,17 +202,17 @@ public class BlockCreator extends javax.swing.JPanel {
 
         txtBlockNumber.setFont(inputFont);
         txtBlockNumber.setBorder(textBorder);
-        txtBlockNumber.setBackground(Theme.BACKGROUND);
+        txtBlockNumber.setBackground(new Theme().getBackground());
 
         txtBlockName.setFont(inputFont);
         txtBlockName.setBorder(textBorder);
-        txtBlockName.setBackground(Theme.BACKGROUND);
+        txtBlockName.setBackground(new Theme().getBackground());
 
         txtDescription.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         txtDescription.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(BORDER_COLOR),
                 BorderFactory.createEmptyBorder(12, 15, 12, 15)));
-        txtDescription.setBackground(Theme.BACKGROUND);
+        txtDescription.setBackground(new Theme().getBackground());
         txtDescription.setLineWrap(true);
         txtDescription.setWrapStyleWord(true);
         txtDescription.setForeground(new Color(60, 60, 60));
@@ -224,8 +224,8 @@ public class BlockCreator extends javax.swing.JPanel {
     // Button
     private void styleButton() {
         btnCreate.setFont(new Font("Segoe UI", Font.BOLD, 15));
-        btnCreate.setBackground(Theme.PRIMARY_BACKGROUND);
-        btnCreate.setForeground(Theme.PRIMARY_FOREGROUND);
+        btnCreate.setBackground(new Theme().getPrimaryBackground());
+        btnCreate.setForeground(new Theme().getPrimaryForeground());
         btnCreate.setFocusPainted(false);
         btnCreate.setBorderPainted(false);
         btnCreate.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -240,7 +240,7 @@ public class BlockCreator extends javax.swing.JPanel {
                     txtDescription.setForeground(new Color(60, 60, 60));
                 }
                 txtDescription.setBorder(BorderFactory.createCompoundBorder(
-                    BorderFactory.createLineBorder(Theme.PRIMARY_BACKGROUND, 2),
+                    BorderFactory.createLineBorder(new Theme().getPrimaryBackground(), 2),
                     BorderFactory.createEmptyBorder(12, 15, 12, 15)));
             }
             
@@ -263,31 +263,31 @@ public class BlockCreator extends javax.swing.JPanel {
             @Override
             public void mouseEntered(MouseEvent e) {
                 Color lighterBrown = new Color(
-                        Math.min(Theme.PRIMARY_BACKGROUND.getRed() + 20, 255),
-                        Math.min(Theme.PRIMARY_BACKGROUND.getGreen() + 20, 255),
-                        Math.min(Theme.PRIMARY_BACKGROUND.getBlue() + 20, 255)
+                        Math.min(new Theme().getPrimaryBackground().getRed() + 20, 255),
+                        Math.min(new Theme().getPrimaryBackground().getGreen() + 20, 255),
+                        Math.min(new Theme().getPrimaryBackground().getBlue() + 20, 255)
                 );
                 btnCreate.setBackground(lighterBrown);
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                btnCreate.setBackground(Theme.PRIMARY_BACKGROUND);
+                btnCreate.setBackground(new Theme().getPrimaryBackground());
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
                 Color darkerBrown = new Color(
-                        Math.max(Theme.PRIMARY_BACKGROUND.getRed() - 20, 0),
-                        Math.max(Theme.PRIMARY_BACKGROUND.getGreen() - 20, 0),
-                        Math.max(Theme.PRIMARY_BACKGROUND.getBlue() - 20, 0)
+                        Math.max(new Theme().getPrimaryBackground().getRed() - 20, 0),
+                        Math.max(new Theme().getPrimaryBackground().getGreen() - 20, 0),
+                        Math.max(new Theme().getPrimaryBackground().getBlue() - 20, 0)
                 );
                 btnCreate.setBackground(darkerBrown);
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                btnCreate.setBackground(Theme.PRIMARY_BACKGROUND);
+                btnCreate.setBackground(new Theme().getPrimaryBackground());
             }
         });
     }
