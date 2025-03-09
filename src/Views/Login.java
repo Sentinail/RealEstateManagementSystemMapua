@@ -12,7 +12,7 @@ public class Login extends JPanel {
         // Layout
         this.setLayout(new FlowLayout());
         // Coloring
-        this.setBackground(Theme.BACKGROUND);
+        this.setBackground(new Theme().getBackground());
 
         // Dimensions
         this.setPreferredSize(new Dimension(800, 600));

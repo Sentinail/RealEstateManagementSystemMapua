@@ -69,22 +69,22 @@ public class LotCreator extends javax.swing.JPanel {
 
     // Layout
     private void Styling1() {
-        setBackground(Theme.BACKGROUND);
+        setBackground(new Theme().getBackground());
 
         JPanel headerPanel = new JPanel();
-        headerPanel.setBackground(Theme.BACKGROUND);
+        headerPanel.setBackground(new Theme().getBackground());
         headerPanel.setPreferredSize(new Dimension(800, 40));
         headerPanel.setLayout(null);
 
         remove(jLabel1);
         JLabel titleLabel = new JLabel("Create New Property Lot");
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 18));
-        titleLabel.setForeground(Theme.PRIMARY_FOREGROUND);
+        titleLabel.setForeground(new Theme().getPrimaryForeground());
         titleLabel.setBounds(20, 8, 300, 24);
         headerPanel.add(titleLabel);
 
         JPanel formPanel = new JPanel();
-        formPanel.setBackground(Theme.BACKGROUND);
+        formPanel.setBackground(new Theme().getBackground());
         formPanel.setBorder(BorderFactory.createCompoundBorder(
             BorderFactory.createLineBorder(new Color(230, 230, 230), 1),
             BorderFactory.createEmptyBorder(25, 40, 25, 40)
@@ -138,7 +138,7 @@ public class LotCreator extends javax.swing.JPanel {
         formPanel.add(cmbStatus, formConstraints);
         
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        buttonPanel.setBackground(Theme.BACKGROUND);
+        buttonPanel.setBackground(new Theme().getBackground());
         buttonPanel.add(btnCreate);
         
         formConstraints.gridx = 0;
@@ -190,11 +190,11 @@ public class LotCreator extends javax.swing.JPanel {
         jLabel5.setFont(labelFont);
         jLabel6.setFont(labelFont);
 
-        jLabel2.setForeground(Theme.SECONDARY_FOREGROUND);
-        jLabel3.setForeground(Theme.SECONDARY_FOREGROUND);
-        jLabel4.setForeground(Theme.SECONDARY_FOREGROUND);
-        jLabel5.setForeground(Theme.SECONDARY_FOREGROUND);
-        jLabel6.setForeground(Theme.SECONDARY_FOREGROUND);
+        jLabel2.setForeground(new Theme().getSecondaryForeground());
+        jLabel3.setForeground(new Theme().getSecondaryForeground());
+        jLabel4.setForeground(new Theme().getSecondaryForeground());
+        jLabel5.setForeground(new Theme().getSecondaryForeground());
+        jLabel6.setForeground(new Theme().getSecondaryForeground());
     }
 
     // Controls
@@ -207,30 +207,30 @@ public class LotCreator extends javax.swing.JPanel {
 
         txtLotNumber.setFont(inputFont);
         txtLotNumber.setBorder(textBorder);
-        txtLotNumber.setBackground(Theme.BACKGROUND);
+        txtLotNumber.setBackground(new Theme().getBackground());
         txtLotNumber.setPreferredSize(new Dimension(180, 40));
 
         txtSize.setFont(inputFont);
         txtSize.setBorder(textBorder);
-        txtSize.setBackground(Theme.BACKGROUND);
+        txtSize.setBackground(new Theme().getBackground());
         txtSize.setPreferredSize(new Dimension(180, 40));
 
         txtPrice.setFont(inputFont);
         txtPrice.setBorder(textBorder);
-        txtPrice.setBackground(Theme.BACKGROUND);
+        txtPrice.setBackground(new Theme().getBackground());
         txtPrice.setPreferredSize(new Dimension(180, 40));
 
         cmbBlock.setFont(inputFont);
-        cmbBlock.setBackground(Theme.BACKGROUND);
+        cmbBlock.setBackground(new Theme().getBackground());
         cmbBlock.setBorder(BorderFactory.createEmptyBorder(8, 10, 8, 10));
         cmbBlock.setPreferredSize(new Dimension(180, 38));
-        ((JComponent) cmbBlock.getRenderer()).setBackground(Theme.BACKGROUND);
+        ((JComponent) cmbBlock.getRenderer()).setBackground(new Theme().getBackground());
 
         cmbStatus.setFont(inputFont);
-        cmbStatus.setBackground(Theme.BACKGROUND);
+        cmbStatus.setBackground(new Theme().getBackground());
         cmbStatus.setBorder(BorderFactory.createEmptyBorder(8, 10, 8, 10));
         cmbStatus.setPreferredSize(new Dimension(180, 38));
-        ((JComponent) cmbStatus.getRenderer()).setBackground(Theme.BACKGROUND);
+        ((JComponent) cmbStatus.getRenderer()).setBackground(new Theme().getBackground());
 
         cmbBlock.setRenderer(new DefaultListCellRenderer() {
             @Override
@@ -241,8 +241,8 @@ public class LotCreator extends javax.swing.JPanel {
                     ((JComponent) c).setBorder(BorderFactory.createEmptyBorder(5, 8, 5, 8));
                 }
                 if (isSelected) {
-                    setBackground(Theme.PRIMARY_BACKGROUND);
-                    setForeground(Theme.PRIMARY_FOREGROUND);
+                    setBackground(new Theme().getPrimaryBackground());
+                    setForeground(new Theme().getPrimaryForeground());
                 }
                 return this;
             }
@@ -257,8 +257,8 @@ public class LotCreator extends javax.swing.JPanel {
                     ((JComponent) c).setBorder(BorderFactory.createEmptyBorder(5, 8, 5, 8));
                 }
                 if (isSelected) {
-                    setBackground(Theme.PRIMARY_BACKGROUND);
-                    setForeground(Theme.PRIMARY_FOREGROUND);
+                    setBackground(new Theme().getPrimaryBackground());
+                    setForeground(new Theme().getPrimaryForeground());
                 }
                 return this;
             }
@@ -271,8 +271,8 @@ public class LotCreator extends javax.swing.JPanel {
     // Appearance
     private void styleButton() {
         btnCreate.setFont(new Font("Segoe UI", Font.BOLD, 14));
-        btnCreate.setBackground(Theme.PRIMARY_BACKGROUND);
-        btnCreate.setForeground(Theme.PRIMARY_FOREGROUND);
+        btnCreate.setBackground(new Theme().getPrimaryBackground());
+        btnCreate.setForeground(new Theme().getPrimaryForeground());
         btnCreate.setFocusPainted(false);
         btnCreate.setBorderPainted(false);
         btnCreate.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -286,31 +286,31 @@ public class LotCreator extends javax.swing.JPanel {
             @Override
             public void mouseEntered(MouseEvent e) {
                 Color lighterBrown = new Color(
-                        Math.min(Theme.PRIMARY_BACKGROUND.getRed() + 20, 255),
-                        Math.min(Theme.PRIMARY_BACKGROUND.getGreen() + 20, 255),
-                        Math.min(Theme.PRIMARY_BACKGROUND.getBlue() + 20, 255)
+                        Math.min(new Theme().getPrimaryBackground().getRed() + 20, 255),
+                        Math.min(new Theme().getPrimaryBackground().getGreen() + 20, 255),
+                        Math.min(new Theme().getPrimaryBackground().getBlue() + 20, 255)
                 );
                 btnCreate.setBackground(lighterBrown);
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                btnCreate.setBackground(Theme.PRIMARY_BACKGROUND);
+                btnCreate.setBackground(new Theme().getPrimaryBackground());
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
                 Color darkerBrown = new Color(
-                        Math.max(Theme.PRIMARY_BACKGROUND.getRed() - 20, 0),
-                        Math.max(Theme.PRIMARY_BACKGROUND.getGreen() - 20, 0),
-                        Math.max(Theme.PRIMARY_BACKGROUND.getBlue() - 20, 0)
+                        Math.max(new Theme().getPrimaryBackground().getRed() - 20, 0),
+                        Math.max(new Theme().getPrimaryBackground().getGreen() - 20, 0),
+                        Math.max(new Theme().getPrimaryBackground().getBlue() - 20, 0)
                 );
                 btnCreate.setBackground(darkerBrown);
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                btnCreate.setBackground(Theme.PRIMARY_BACKGROUND);
+                btnCreate.setBackground(new Theme().getPrimaryBackground());
             }
         });
     }

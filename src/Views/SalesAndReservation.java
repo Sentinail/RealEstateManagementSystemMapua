@@ -17,7 +17,7 @@ public class SalesAndReservation extends JPanel {
         // Layout
         this.setLayout(new FlowLayout());
         // Background
-        this.setBackground(Theme.BACKGROUND);
+        this.setBackground(new Theme().getBackground());
         
         // Size
         this.setPreferredSize(new Dimension(600, 600));

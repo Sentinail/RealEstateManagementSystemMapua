@@ -17,8 +17,8 @@ import Theme.Theme;
 public class LoginButton extends JButton { // Submit
     public LoginButton() {
         super("Login");
-        setBackground(Theme.PRIMARY_BACKGROUND);
-        setForeground(Theme.PRIMARY_FOREGROUND);
+        setBackground(new Theme().getPrimaryBackground());
+        setForeground(new Theme().getPrimaryForeground());
         setFocusPainted(false);
         setFont(new Font("Arial", Font.BOLD, 14));
     }

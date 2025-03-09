@@ -27,7 +27,7 @@ public class DashboardSideBarLogo extends JPanel { // Branding
         setOpaque(false);
         setLayout(new GridBagLayout());
         
-        this.setBorder(BorderFactory.createLineBorder(Theme.PRIMARY_BACKGROUND));
+        this.setBorder(BorderFactory.createLineBorder(new Theme().getPrimaryBackground()));
         
 
         logoIcon = new ImageIcon(new ImageIcon("src/assets/logo.png")

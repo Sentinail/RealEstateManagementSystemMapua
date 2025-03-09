@@ -16,12 +16,14 @@ Block,Location,Size,Price,Status,Owner
 3,"Novaliches, Quezon City",290.00,6900000.00,AVAILABLE,N/A
 4,"Banilad, Cebu City",350.00,7500000.00,AVAILABLE,N/A
 4,"Lahug, Cebu City",330.00,7300000.00,AVAILABLE,N/A
-4,"Mabolo, Cebu City",320.00,7200000.00,AVAILABLE,N/A
-4,"Talamban, Cebu City",310.00,7100000.00,AVAILABLE,N/A
+4,"Mabolo, Cebu City",320.00,7200000.00,SOLD,Juan Dela Cruz
+4,"Talamban, Cebu City",310.00,7100000.00,RESERVED,Pedro Morales
 4,"Guadalupe, Cebu City",340.00,7400000.00,AVAILABLE,N/A
 5,"Bajada, Davao City",400.00,8000000.00,AVAILABLE,N/A
 5,"Matina, Davao City",380.00,7800000.00,AVAILABLE,N/A
 5,"Lanang, Davao City",370.00,7700000.00,AVAILABLE,N/A
 5,"Toril, Davao City",360.00,7600000.00,AVAILABLE,N/A
 5,"Agdao, Davao City",390.00,7900000.00,AVAILABLE,N/A
-5,Block E,123.00,123000.00,AVAILABLE,N/A
+5,Block E,123.00,123000.00,RESERVED,Ana Garcia
+6,Block F,100.00,100000000.00,AVAILABLE,N/A
+7,Block G,150.00,1500000.00,RESERVED,Wilson Ponseca

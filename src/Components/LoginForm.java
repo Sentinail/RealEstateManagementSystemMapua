@@ -24,6 +24,6 @@ public class LoginForm extends JPanel { // Authentication
         this.setMinimumSize(new Dimension(400, 600));
         this.setMaximumSize(new Dimension(400, 600));
 
-        this.setBackground(Theme.BACKGROUND);
+        this.setBackground(new Theme().getBackground());
     }
 }

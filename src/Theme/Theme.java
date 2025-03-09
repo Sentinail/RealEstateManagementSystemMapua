@@ -5,20 +5,41 @@
 package Theme;
 
 import java.awt.Color;
+import Interface.ThemeInterface;
 
 /**
  *
  * @author Sentinail
  */
-public class Theme {
-    // Define theme colors
-    public static final Color BACKGROUND = Color.decode("#FFFFFF");  // White
-    public static final Color FOREGROUND = Color.decode("#000000");  // Black
-    public static final Color PRIMARY_BACKGROUND = Color.decode("#A48873"); // Brownish shade
-    public static final Color PRIMARY_FOREGROUND = Color.decode("#FFFFFF"); // White
-    public static final Color SECONDARY_BACKGROUND = Color.decode("#FEF4EA"); // Beige
-    public static final Color SECONDARY_FOREGROUND = Color.decode("#2D303F"); // Dark Blue
+public class Theme implements ThemeInterface {
     
-    // Private constructor to prevent instantiation
-    private Theme() {}
+    @Override
+    public Color getBackground() {
+        return Color.decode("#FFFFFF");  // White
+    }
+
+    @Override
+    public Color getForeground() {
+        return Color.decode("#000000");  // Black
+    }
+
+    @Override
+    public Color getPrimaryBackground() {
+        return Color.decode("#A48873"); // Brownish shade
+    }
+
+    @Override
+    public Color getPrimaryForeground() {
+        return Color.decode("#FFFFFF"); // White
+    }
+
+    @Override
+    public Color getSecondaryBackground() {
+        return Color.decode("#FEF4EA"); // Beige
+    }
+
+    @Override
+    public Color getSecondaryForeground() {
+        return Color.decode("#2D303F"); // Dark Blue
+    }
 }
