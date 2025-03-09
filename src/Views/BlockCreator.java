@@ -361,11 +361,9 @@ public class BlockCreator extends javax.swing.JPanel {
         add(lblMessage);
     }
 
-    // Unused
     private void txtBlockNumberActionPerformed(java.awt.event.ActionEvent evt) {
     }
 
-    // Unused
     private void txtBlockNameActionPerformed(java.awt.event.ActionEvent evt) {
     }
 
