@@ -20,7 +20,7 @@ public class DashboardSideBarNavigationButton extends JButton { // Menu
     public DashboardSideBarNavigationButton() {
         this.setText("Navigation");
         setPreferredSize(new Dimension(160, 20));
-        setBackground(Theme.PRIMARY_BACKGROUND);
+        setBackground(new Theme().getPrimaryBackground());
         setForeground(Color.WHITE);
         setBorderPainted(false);
         setFocusPainted(false);
@@ -29,7 +29,7 @@ public class DashboardSideBarNavigationButton extends JButton { // Menu
     public DashboardSideBarNavigationButton(String label) {
         this.setText(label);
         setPreferredSize(new Dimension(160, 20));
-        setBackground(Theme.PRIMARY_BACKGROUND);
+        setBackground(new Theme().getPrimaryBackground());
         setForeground(Color.WHITE);
         setBorderPainted(false);
         setFocusPainted(false);
