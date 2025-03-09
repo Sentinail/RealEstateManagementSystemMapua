@@ -24,6 +24,6 @@ public class RegisterBanner extends JPanel { // Sidebar
         this.setMinimumSize(new Dimension(400, 600));
         this.setMaximumSize(new Dimension(400, 600));
 
-        this.setBackground(Theme.SECONDARY_BACKGROUND);
+        this.setBackground(new Theme().getSecondaryBackground());
     }
 }

@@ -26,7 +26,7 @@ public class DashboardBody extends JPanel { // Content
         this.setMinimumSize(new Dimension(600, 600));
         this.setMaximumSize(new Dimension(600, 600));
 
-        this.setBackground(Theme.BACKGROUND);
+        this.setBackground(new Theme().getBackground());
     }
     
     public void view(String panelName) {

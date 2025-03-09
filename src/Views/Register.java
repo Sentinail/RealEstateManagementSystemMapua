@@ -17,7 +17,7 @@ public class Register extends JPanel {
         // Initialize
         this.setLayout(new FlowLayout());
         // Theme
-        this.setBackground(Theme.BACKGROUND);
+        this.setBackground(new Theme().getBackground());
         
         // Dimensions
         this.setPreferredSize(new Dimension(800, 600));

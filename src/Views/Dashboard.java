@@ -16,7 +16,7 @@ public class Dashboard extends JPanel {
         // Layout
         this.setLayout(new FlowLayout());
         // Color
-        this.setBackground(Theme.BACKGROUND);
+        this.setBackground(new Theme().getBackground());
         // Size
         this.setPreferredSize(new Dimension(800, 600));
         // Minimum
