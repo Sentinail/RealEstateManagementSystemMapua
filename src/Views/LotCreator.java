@@ -20,16 +20,13 @@ import Theme.Theme;
  */
 public class LotCreator extends javax.swing.JPanel {
 
-    private Components.LotSearchPanel lotSearchPanel;
-
     // Colors
     private static final Color BORDER_COLOR = new Color(200, 200, 200);
     private static final Color SUCCESS_COLOR = new Color(76, 175, 80);
     private static final Color ERROR_COLOR = new Color(211, 47, 47);
 
     // Initialization
-    public LotCreator(Components.LotSearchPanel lotSearchPanel) {
-        this.lotSearchPanel = lotSearchPanel;
+    public LotCreator() {
         initComponents();
         this.setPreferredSize(new Dimension(800, 600));
         this.setMinimumSize(new Dimension(800, 600));
@@ -38,8 +35,13 @@ public class LotCreator extends javax.swing.JPanel {
         cmbBlock.setModel(new DefaultComboBoxModel<Classes.Block>());
         cmbStatus.setModel(new DefaultComboBoxModel<>(new String[]{"AVAILABLE", "RESERVED", "SOLD"}));
         adjustComponentSizes();
-        loadBlocks();
+        
         setupHoverEffects();
+        
+        if (!java.beans.Beans.isDesignTime()) {
+            loadBlocks();
+            
+        }
     }
 
     // Dimensions
@@ -551,12 +553,6 @@ public class LotCreator extends javax.swing.JPanel {
                 clearFields();
             } 
 
-            if (lotSearchPanel != null) {
-                lotSearchPanel.refreshData();
-            }
-            else {
-                lblMessage.setText("Failed to create lot. It may already exist.");
-            }
         } catch (IllegalArgumentException e) {
             lblMessage.setText("Invalid status value");
             e.printStackTrace();

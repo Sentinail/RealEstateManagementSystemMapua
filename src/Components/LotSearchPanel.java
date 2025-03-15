@@ -39,6 +39,9 @@ import Model.LotModel;
 import Model.UserModel;
 import Utils.CSV;
 
+import java.awt.event.HierarchyListener;
+import java.awt.event.HierarchyEvent;
+
 /**
  *
  * @author Sentinail
@@ -109,6 +112,16 @@ public class LotSearchPanel extends JPanel {
         if (!java.beans.Beans.isDesignTime()) {
             loadLotsFromDatabase();
             
+            this.addHierarchyListener(new HierarchyListener() {
+                @Override
+                public void hierarchyChanged(HierarchyEvent e) {
+                    if ((e.getChangeFlags() & HierarchyEvent.SHOWING_CHANGED) != 0) {
+                        if (!java.beans.Beans.isDesignTime() && isShowing()) { 
+                            loadLotsFromDatabase();
+                        }
+                    }
+                }
+            });
         }
         
         searchButton.addActionListener(e -> filterLots());

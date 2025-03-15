@@ -1,27 +1,7 @@
 Block,Location,Size,Price,Status,Owner
-1,"Ermita, Manila",150.00,2500000.00,RESERVED,Carlos Tan
-1,"Malate, Manila",200.00,3000000.00,SOLD,Pedro Morales
-1,"Intramuros, Manila",180.00,2750000.00,RESERVED,Carlos Tan
-1,"Paco, Manila",160.00,2600000.00,AVAILABLE,N/A
-1,"San Andres, Manila",170.00,2700000.00,AVAILABLE,N/A
-2,"Ayala, Makati",250.00,6000000.00,AVAILABLE,N/A
-2,"Legaspi Village, Makati",220.00,5500000.00,AVAILABLE,N/A
-2,"Salcedo Village, Makati",230.00,5700000.00,AVAILABLE,N/A
-2,"Poblacion, Makati",240.00,5800000.00,AVAILABLE,N/A
-2,"San Antonio, Makati",200.00,5200000.00,AVAILABLE,N/A
-3,"Diliman, Quezon City",300.00,7000000.00,AVAILABLE,N/A
-3,"Katipunan, Quezon City",280.00,6800000.00,AVAILABLE,N/A
-3,"Tandang Sora, Quezon City",260.00,6500000.00,AVAILABLE,N/A
-3,"Fairview, Quezon City",270.00,6600000.00,AVAILABLE,N/A
-3,"Novaliches, Quezon City",290.00,6900000.00,AVAILABLE,N/A
-4,"Banilad, Cebu City",350.00,7500000.00,AVAILABLE,N/A
-4,"Lahug, Cebu City",330.00,7300000.00,AVAILABLE,N/A
-4,"Mabolo, Cebu City",320.00,7200000.00,AVAILABLE,N/A
-4,"Talamban, Cebu City",310.00,7100000.00,AVAILABLE,N/A
-4,"Guadalupe, Cebu City",340.00,7400000.00,AVAILABLE,N/A
 5,"Bajada, Davao City",400.00,8000000.00,AVAILABLE,N/A
 5,"Matina, Davao City",380.00,7800000.00,AVAILABLE,N/A
 5,"Lanang, Davao City",370.00,7700000.00,AVAILABLE,N/A
 5,"Toril, Davao City",360.00,7600000.00,AVAILABLE,N/A
 5,"Agdao, Davao City",390.00,7900000.00,AVAILABLE,N/A
-5,Block E,123.00,123000.00,AVAILABLE,N/A
+5,Block E,123.00,123000.00,RESERVED,Ana Garcia

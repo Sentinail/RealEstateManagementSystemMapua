@@ -34,4 +34,14 @@ public class DashboardSideBarNavigationButton extends JButton { // Menu
         setBorderPainted(false);
         setFocusPainted(false);
     }
+    
+    public DashboardSideBarNavigationButton(String label, String name) {
+        this.setText(label);
+        this.setName(name);
+        setPreferredSize(new Dimension(160, 20));
+        setBackground(new Theme().getPrimaryBackground());
+        setForeground(Color.WHITE);
+        setBorderPainted(false);
+        setFocusPainted(false);
+    }
 }
