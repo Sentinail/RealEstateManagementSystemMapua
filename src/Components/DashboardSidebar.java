@@ -45,6 +45,23 @@ public class DashboardSidebar extends JPanel { // Navigation
                 }
             });
         }
+        
+        JButton logoutButton = new DashboardSideBarNavigationButton("Logout");
+        
+        logoutButton.setPreferredSize(new Dimension(180, 40)); // Full width but smaller height
+        logoutButton.setMaximumSize(new Dimension(180, 40));
+        logoutButton.setMinimumSize(new Dimension(180, 40));
+        logoutButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
+        logoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+                
+            }
+        });
+        
+        buttonContainer.add(logoutButton);
 
         add(buttonContainer);
     }

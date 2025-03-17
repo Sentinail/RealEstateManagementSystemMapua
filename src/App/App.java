@@ -44,13 +44,6 @@ public class App extends javax.swing.JFrame {
         navigationButtons.add(blockCreatorButton);
         navigationButtons.add(lotCreatorButton);
         rootPanel = new Components.RootPanel();
-        dashboard = new Views.Dashboard();
-        dashboardBody1 = new Components.DashboardBody();
-        salesAndReservation1 = new Views.SalesAndReservation();
-        lotSearchPanel1 = new Components.LotSearchPanel();
-        blockCreator1 = new Views.BlockCreator();
-        lotCreator1 = new Views.LotCreator();
-        dashboardSidebar2 = new Components.DashboardSidebar(dashboardBody1, navigationButtons);
         login = new Views.Login();
         loginBanner3 = new Components.LoginBanner();
         loginBannerLogo1 = new Components.LoginBannerLogo();
@@ -81,51 +74,17 @@ public class App extends javax.swing.JFrame {
         registerLastnameField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         registerFirstnameField = new javax.swing.JTextField();
+        dashboard = new Views.Dashboard();
+        dashboardBody1 = new Components.DashboardBody();
+        salesAndReservation1 = new Views.SalesAndReservation();
+        lotSearchPanel1 = new Components.LotSearchPanel();
+        blockCreator1 = new Views.BlockCreator();
+        lotCreator1 = new Views.LotCreator();
+        dashboardSidebar2 = new Components.DashboardSidebar(dashboardBody1, navigationButtons);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
         setResizable(false);
-
-        javax.swing.GroupLayout salesAndReservation1Layout = new javax.swing.GroupLayout(salesAndReservation1);
-        salesAndReservation1.setLayout(salesAndReservation1Layout);
-        salesAndReservation1Layout.setHorizontalGroup(
-            salesAndReservation1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(salesAndReservation1Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(lotSearchPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        salesAndReservation1Layout.setVerticalGroup(
-            salesAndReservation1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(salesAndReservation1Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(lotSearchPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        dashboardBody1.add(salesAndReservation1, "card2");
-        dashboardBody1.add(blockCreator1, "card3");
-        dashboardBody1.add(lotCreator1, "card4");
-
-        javax.swing.GroupLayout dashboardLayout = new javax.swing.GroupLayout(dashboard);
-        dashboard.setLayout(dashboardLayout);
-        dashboardLayout.setHorizontalGroup(
-            dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dashboardLayout.createSequentialGroup()
-                .addComponent(dashboardSidebar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(dashboardBody1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        dashboardLayout.setVerticalGroup(
-            dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dashboardLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dashboardBody1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dashboardSidebar2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-
-        rootPanel.add(dashboard, "card4");
 
         login.setLayout(new javax.swing.BoxLayout(login, javax.swing.BoxLayout.LINE_AXIS));
 
@@ -355,6 +314,47 @@ public class App extends javax.swing.JFrame {
 
         rootPanel.add(register, "card2");
 
+        javax.swing.GroupLayout salesAndReservation1Layout = new javax.swing.GroupLayout(salesAndReservation1);
+        salesAndReservation1.setLayout(salesAndReservation1Layout);
+        salesAndReservation1Layout.setHorizontalGroup(
+            salesAndReservation1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(salesAndReservation1Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(lotSearchPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        salesAndReservation1Layout.setVerticalGroup(
+            salesAndReservation1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(salesAndReservation1Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(lotSearchPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        dashboardBody1.add(salesAndReservation1, "card2");
+        dashboardBody1.add(blockCreator1, "card3");
+        dashboardBody1.add(lotCreator1, "card4");
+
+        javax.swing.GroupLayout dashboardLayout = new javax.swing.GroupLayout(dashboard);
+        dashboard.setLayout(dashboardLayout);
+        dashboardLayout.setHorizontalGroup(
+            dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dashboardLayout.createSequentialGroup()
+                .addComponent(dashboardSidebar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(dashboardBody1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        dashboardLayout.setVerticalGroup(
+            dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dashboardLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dashboardBody1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dashboardSidebar2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        rootPanel.add(dashboard, "card4");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -418,33 +418,12 @@ public class App extends javax.swing.JFrame {
             if (createdUser != null) {
                 JOptionPane.showMessageDialog(this, "User registered successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
 
-                // Redirect to login panel
-                RootPanel rootPanel = (RootPanel) SwingUtilities.getAncestorOfClass(RootPanel.class, registerButton);
-
-                if (rootPanel != null) {
-                    // Find login panel
-                    Component[] components = rootPanel.getComponents();
-                    JPanel loginPanel = null;
-
-                    for (Component comp : components) {
-                        if (comp instanceof JPanel && "login".equals(comp.getName())) {
-                            loginPanel = (JPanel) comp;
-                            break;
-                        }
-                    }
-
-                    // Switch to login panel
-                    if (loginPanel != null) {
-                        rootPanel.removeAll();
-                        rootPanel.add(loginPanel);
-                        rootPanel.repaint();
-                        rootPanel.revalidate();
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Something went wrong redirecting to login", "Error", JOptionPane.ERROR_MESSAGE);
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(this, "Something went wrong redirecting to login", "Error", JOptionPane.ERROR_MESSAGE);
-                }
+                rootPanel.view("card4");
+                
+                Session session = Session.getInstance();
+                
+                session.setUser(createdUser);
+                
             } else {
                 JOptionPane.showMessageDialog(this, "Failed to register user.", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -496,6 +475,10 @@ public class App extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Login successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
 
                 rootPanel.view("card4");
+                
+                Session session = Session.getInstance();
+                
+                session.setUser(user);
 
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE);
